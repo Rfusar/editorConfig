@@ -1,0 +1,12 @@
+## SHORTCUT
+<C-b> -> apre/chiude treeExplorer
+<C-s> -> salva file
+<C-f> -> cerca file
+<SPAZIO>src -> cerca parola nella directory
+<SPAZIO>ps -> sincronizza plugin con PakerSync
+
+#### snippets
+								
+								<SPAZIO>html -> default file.html
+								<SPAZIO>gw -> default server go
+
