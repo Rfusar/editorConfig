@@ -6,8 +6,6 @@ vim.opt.tabstop=1
 
 
 
-
-
 vim.cmd("highlight Normal guibg=black")
 
 
