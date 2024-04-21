@@ -20,8 +20,15 @@ local key = vim.keymap.set
 key("n", "<C-b>", ":NvimTreeToggle<CR>", {silent=true})
 key("n", "<leader>ps", ":PackerSync<CR>", {silent=true})
 
-key("", "<leader>123", function() vim.opt.number = true end, {silent=true})
-key("", "<leader>101",  function() vim.opt.relativenumber = true end, {silent=true})
+key("", "<leader>123", function() 
+								vim.opt.number = true
+								vim.opt.relativenumber = false
+end, {silent=true})
+
+key("", "<leader>101",  function() 
+									vim.opt.relativenumber = true
+							  vim.opt.number = false 
+end, {silent=true})
 
 
 -- comandi

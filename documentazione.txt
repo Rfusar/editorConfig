@@ -5,6 +5,9 @@
 <SPAZIO>src -> cerca parola nella directory
 <SPAZIO>ps -> sincronizza plugin con PakerSync
 
+<SPAZIO>123 -> number
+<SPAZIO>101 -> relativenumber
+
 #### snippets
 								
 								<SPAZIO>html -> default file.html
