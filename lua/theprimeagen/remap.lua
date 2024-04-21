@@ -18,6 +18,7 @@ vim.opt.termguicolors = true
 local key = vim.keymap.set
 -- Explorer file
 key("n", "<C-b>", ":NvimTreeToggle<CR>", {silent=true})
+key('', "<leader>so", vim.cmd.so)
 key("n", "<leader>ps", ":PackerSync<CR>", {silent=true})
 
 key("", "<leader>123", function() 
