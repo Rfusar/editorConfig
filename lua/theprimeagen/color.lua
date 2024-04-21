@@ -1,3 +1,5 @@
+vim.opt.readonly = false
+
 vim.cmd([[
  hi Comment guifg=#5c5c5c gui=italic
  hi Constant guifg=#1500ff
