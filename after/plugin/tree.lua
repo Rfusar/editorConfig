@@ -1,4 +1,3 @@
-vim.opt.readonly = false
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup()

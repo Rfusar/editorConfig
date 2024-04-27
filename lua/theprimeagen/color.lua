@@ -1,23 +1,41 @@
-vim.opt.readonly = false
+vim.cmd("highlight Normal guibg=black")
 
-vim.cmd([[
- hi Comment guifg=#5c5c5c gui=italic
- hi Constant guifg=#1500ff
-	hi lCursor guifg=#1500ff
- hi Conditional guifg=#7202b8
- hi Function guifg=#663bc4 gui=italic
- hi Keyword gui=bold
- hi Boolean guifg=#9400e3
- hi String guifg=#60d662
- hi Identifier guifg=#00eeff
- hi Type guifg=#f6ff00
- hi Statement guifg=#ff8800
- hi PreProc guifg=#3f8df2
- hi CursorLine guifg=#ff0000
- hi ColorColumn guifg=#ffffff
- hi Number guifg=#ff0000
-	
-	]])
+local c = {				
+    grigio = "#383838",
+    rossoAcceso = "#fc0505",
+    rossoNormale = "#a30707",
+    rossoChiaro = "#b84444",
+				arancio = "#f26507",
+				giallo = "#f0d805",
+				verde = "#03ad1d",
+				azzurroAcceso = "#055deb",
+				azzurro = "#06ba96",
+				azzurroScuro = "#038a87",
+				bluChiaro = "#028bb5",
+				blu = "#0508a6",
+				violaAcceso = "#8607f5",
+    violaChiaro = "#a651f0",
+				rosaAcceso = "#f505d1",
+				rosa = "#c746b4",
+}
+
+local syntax = {
+    Comment = "guifg="..c.grigio.." gui=italic",
+    Constant = "guifg="..c.arancio,
+				Repeat = "guifg="..c.azzurroAcceso.."gui=italic",
+--  Number = "guifg="..c.
+				Conditional = "guifg="..c.violaAcceso.."gui=italic",
+				Function = "guifg="..c.azzurroAcceso.."gui=italic",
+				Exception = "guifg="..c.violaAcceso.."gui=italic",
+    Keyword = "guifg="..c.violaChiaro,
+				boolean = "guifg="..c.rosa,
+				String = "guifg="..c.verde,
+				Identifier = "guifg="..c.rossoNormale,
+    Type = "guifg="..c.rossoChiaro,
+				Statement = "guifg="..c.violaAcceso,
+				Structure = "guifg="..c.violaAcceso,
+}
+for k, v in pairs(syntax) do vim.cmd("hi ".. k .. " ".. v) end
 
 
---vim.cmd('syntax off')
+

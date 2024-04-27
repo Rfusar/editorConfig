@@ -1,4 +1,3 @@
-vim.opt.readonly = false
 local key = vim.keymap.set
 
 

@@ -1,10 +1,14 @@
 ## SHORTCUT
 <C-b> -> apre/chiude treeExplorer
 <C-s> -> salva file
+<SPAZIO>sa -> salva tutti i file
+
 <C-f> -> cerca file
 <SPAZIO>src -> cerca parola nella directory
 <SPAZIO>ps -> sincronizza plugin con PakerSync
 <SPAZIO>so -> esegui codice
+<SPAZIO>help -> menu help
+<SPAZIO>cfg -> configura nvim
 
 <SPAZIO>123 -> number
 <SPAZIO>101 -> relativenumber
