@@ -1,41 +1,57 @@
-vim.cmd("highlight Normal guibg=black")
+require("catppuccin").setup({
+    flavour = "auto", -- latte, frappe, macchiato, mocha
+    background = { -- :h background
+        light = "latte",
+        dark = "mocha",
+    },
+    transparent_background = false, -- disables setting the background color.
+    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+    dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+    },
+    no_italic = false, -- Force no italic
+    no_bold = false, -- Force no bold
+    no_underline = false, -- Force no underline
+    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+        -- miscs = {}, -- Uncomment to turn off hard-coded styles
+    },
+    color_overrides = {
+      mocha = {
+        base = "#000000",
+        mantle = "#000000",
+        crust = "#000000",
+      }
+    },
+    custom_highlights = {},
+    default_integrations = true,
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        treesitter = true,
+        notify = false,
+        mini = {
+            enabled = true,
+            indentscope_color = "",
+        },
+        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+    },
+})
 
-local c = {				
-    grigio = "#383838",
-    rossoAcceso = "#fc0505",
-    rossoNormale = "#a30707",
-    rossoChiaro = "#b84444",
-				arancio = "#f26507",
-				giallo = "#f0d805",
-				verde = "#03ad1d",
-				azzurroAcceso = "#055deb",
-				azzurro = "#06ba96",
-				azzurroScuro = "#038a87",
-				bluChiaro = "#028bb5",
-				blu = "#0508a6",
-				violaAcceso = "#8607f5",
-    violaChiaro = "#a651f0",
-				rosaAcceso = "#f505d1",
-				rosa = "#c746b4",
-}
-
-local syntax = {
-    Comment = "guifg="..c.grigio.." gui=italic",
-    Constant = "guifg="..c.arancio,
-				Repeat = "guifg="..c.azzurroAcceso.."gui=italic",
---  Number = "guifg="..c.
-				Conditional = "guifg="..c.violaAcceso.."gui=italic",
-				Function = "guifg="..c.azzurroAcceso.."gui=italic",
-				Exception = "guifg="..c.violaAcceso.."gui=italic",
-    Keyword = "guifg="..c.violaChiaro,
-				boolean = "guifg="..c.rosa,
-				String = "guifg="..c.verde,
-				Identifier = "guifg="..c.rossoNormale,
-    Type = "guifg="..c.rossoChiaro,
-				Statement = "guifg="..c.violaAcceso,
-				Structure = "guifg="..c.violaAcceso,
-}
-for k, v in pairs(syntax) do vim.cmd("hi ".. k .. " ".. v) end
-
-
-
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
