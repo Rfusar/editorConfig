@@ -17,4 +17,5 @@
 								
 								<SPAZIO>html -> default file.html
 								<SPAZIO>gw -> default server go
-
+fonts:
+  https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf
