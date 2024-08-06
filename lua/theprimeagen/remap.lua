@@ -3,11 +3,11 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
          
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
-
+vim.opt.autoread = true
 
 local key = vim.keymap.set
 -- Explorer file
@@ -19,11 +19,19 @@ key("", "<leader>123", function()
 								vim.opt.number = true
 								vim.opt.relativenumber = false
 end, {silent=true})
+
 key("", "<leader>101",  function() 
 									vim.opt.relativenumber = true
 							  vim.opt.number = false 
 end, {silent=true})
 
+
+vim.opt.shortmess:append("c")
+vim.api.nvim_create_augroup("autoreload", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
+    group = "autoreload",
+    command = "checktime"
+})
 
 -- comandi
 key("v", "<leader>c", '"+y')
