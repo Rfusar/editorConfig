@@ -55,10 +55,15 @@
 
 
 ### Extra
-[font Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf)
 
-refresh cache -> sudo fc-cahce -f -v
-per treesitter, avere node e abilitare i pachetti scaricati disponibili globalmente
+font che permettono di visualiizare web-icon [font Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf)
+
+lettura della documentzione di vim/nvim [VIM docs](https://youtu.be/rT-fbLFOCy0?si=R5yYmHxDoNBdzHOa)
     
-    javascript/typescript -> typescript-language-server
-    python -> pyright-langserver 
+    refresh cache -> sudo fc-cahce -f -v
+
+per avere degli info quando si scrive codice, bisogna avere `node` e i seguinti pachetti disponibili globalmente.
+Nel caso si volesse avere javascript/typescript e python disponibili
+    
+    javascript/typescript -> npm install typescript-language-server
+    python -> npm install pyright-langserver 
