@@ -40,7 +40,6 @@
 | Comando                | Descrizione                  |
 | ---------------------- | ---------------------------- |
 | Leader + sni           | Menu Template                |
-| Leader + Leader + sni  | Menu Template GUI            |
 
 
 ### Altri cmds

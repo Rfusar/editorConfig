@@ -6,14 +6,14 @@ local action_state = require('telescope.actions.state')
 
 local M = {}
 -- Ottieni il percorso di lavoro corrente
-local home = vim.fn.getcwd() .. "\\lua\\core\\config\\snippets\\libs"
+local home = vim.fn.stdpath('config') .. "/lua/core/snippets/libs"
 
 -- Definisci i percorsi relativi rispetto al percorso attuale
 local snippets = {
-   ["HTML Default Page"] = home .. "\\html.txt",
-   ["Server Init - Golang"] = home .. "\\go_Server1.txt",
-   ["Server Utils -  Golang"] = home .. "\\go_Server2.txt",
-   ["Connect Imap - Python"] = home .. "\\py_Imap.txt",
+   ["HTML Default Page"] = home .. "/html.txt",
+   ["Server Init - Golang"] = home .. "/go_Server1.txt",
+   ["Server Utils -  Golang"] = home .. "/go_Server2.txt",
+   ["Connect Imap - Python"] = home .. "/py_Imap.txt",
 }
 
 local snippet_names = {}
