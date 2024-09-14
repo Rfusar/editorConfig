@@ -47,10 +47,22 @@ key("v", "<leader>c", '"+y')
 local OS = vim.loop.os_uname().sysname
 if OS == "Windows_NT" then
     key("", "<leader>cfg", function() vim.cmd(":!cmd.exe /c start nvim C:/Users/Utente/AppData/Local/nvim") end, opts)
-    key("", "<leader>help", function() vim.cmd(":!cmd.exe /c start nvim C:/Users/Utente/AppData/Local/nvim/README.md") end, opts)
 
 elseif OS == "Linux" then
     key("", "<leader>cfg", function()  vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim'")end, opts)
-    key("", "<leader>help", function() vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim/README.md'")end, opts)
 
 end
+
+function Help()
+    local filepath = vim.fn.stdpath('config').."/README.md"
+    local file = io.open(file_path, "r")
+    if file then
+        file:close()
+        vim.cmd('leftabove vsplit ' .. file_path)
+        vim.cmd('vertical resize 70')
+    else
+        print("Errore: Impossibile aprire il file " .. file_path)
+    end
+end
+
+key('n', '<leader>help', ':lua Help()<CR>', opts)
