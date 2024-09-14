@@ -5,7 +5,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)  -- For `luasnip` users.
+      require('luasnip').lsp_expand(args.body)  -- For `luasnip` users.
     end,
   },
   mapping = {
@@ -30,7 +30,7 @@ cmp.setup({
 -- Array di server LSP e relative configurazioni
 local lsp_servers = {
   pyright = {},
-  tsserver = {},
+  ts_ls = {},
   --clangd = {},
   --gopls = {},
 }
