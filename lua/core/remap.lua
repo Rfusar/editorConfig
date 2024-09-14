@@ -44,5 +44,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
 key("v", "<leader>c", '"+y')
 
 -- Remote Configuration 
-key("", "<leader>cfg", function()  vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim'")end, opts)
-key("", "<leader>help", function() vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim/README.md'")end, opts)
+local OS = vim.loop.os_uname().sysname
+if OS == "Windows_NT" then
+    key("", "<leader>cfg", function() vim.cmd(":!cmd.exe /c start nvim C:/Users/Utente/AppData/Local/nvim") end, opts)
+    key("", "<leader>help", function() vim.cmd(":!cmd.exe /c start nvim C:/Users/Utente/AppData/Local/nvim/README.md") end, opts)
+
+elseif OS == "Linux" then
+    key("", "<leader>cfg", function()  vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim'")end, opts)
+    key("", "<leader>help", function() vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim/README.md'")end, opts)
+
+end
