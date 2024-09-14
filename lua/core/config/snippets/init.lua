@@ -20,6 +20,7 @@ end
 
 function GUI() G.custom_picker() end
 
+local key = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('', '<leader>sni', ':lua addSnippetOnCurrentBuffer()<CR>', opts)
-vim.api.nvim_set_keymap('', '<leader><leader>sni', ':lua GUI()<CR>', opts)
+key('', '<leader>sni', ':lua GUI()<CR>', opts)
+key('', '<leader><leader>sni', ':lua addSnippetOnCurrentBuffer()<CR>', opts)
