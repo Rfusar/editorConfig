@@ -16,7 +16,7 @@
 | Leader + tag           | Set tag html               |
 | Leader + cfg           | Open nvim project          |
 | Leader + help          | Open this file             |
-| Leader + Leader + p    | Menu Macros                |
+| Leader + Leader + p    | Menu projects              |
 | Leader + Leader + t    | Display task               |
 | Leader + Leader + r    | Set replace word           |
 | Leader + Leader + c    | Set char comment           |

@@ -3,11 +3,8 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-     requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use 'nvim-lua/plenary.nvim'
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.8' }
   use 'nvim-tree/nvim-web-devicons'
 
   use ('nvim-tree/nvim-tree.lua', {run = ':TSUpdate'})
@@ -15,16 +12,15 @@ return require('packer').startup(function(use)
   
   use { "catppuccin/nvim", as = "catppuccin" }
 
-
   -- Lettore File CSV
   use 'akinsho/toggleterm.nvim'
   use 'theKnightsOfRohan/csvlens.nvim'
-  --Lettore File MD
-    use({ "iamcco/markdown-preview.nvim", 
-        run = "cd app && npm install", 
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, 
-    })
 
+  --Lettore File MD
+  use({ "iamcco/markdown-preview.nvim", 
+    run = "cd app && npm install", 
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, 
+  })
 
  -- Plugin per LSP (Language Server Protocol)
   use 'neovim/nvim-lspconfig'    
