@@ -53,8 +53,9 @@ elseif OS == "Linux" then
 
 end
 
+-- Help
 function Help()
-    local filepath = vim.fn.stdpath('config').."/README.md"
+    local file_path = vim.fn.stdpath('config').."/README.md"
     local file = io.open(file_path, "r")
     if file then
         file:close()
