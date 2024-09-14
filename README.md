@@ -44,7 +44,7 @@
 | ------------ | -------------------------------------- |
 | Leader + csv | Read files CVS                         |
 | Leader + mds | Enable server mode to read the file MD |
-| Leader + mdq | Enable server mode to read the file MD |
+| Leader + mdq | Disable server mode to read the file MD |
 
 
 ## 4. Snippets (Template)
