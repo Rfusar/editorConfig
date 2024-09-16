@@ -3,7 +3,7 @@ local function open_file_in_split(file_path)
     if file then
         file:close()
         vim.cmd('aboveleft split ' .. file_path)  -- Apri il file in split sopra
-        vim.cmd('resize 10')
+        vim.cmd('resize 20')
     else
         print("Errore: Impossibile aprire il file " .. file_path)
     end

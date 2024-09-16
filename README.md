@@ -19,7 +19,7 @@
 | Leader + cfg           | Open nvim project          |
 | Leader + help          | Open this file             |
 | Leader + Leader + p    | Menu projects              |
-| Leader + Leader + t    | Display task               |
+| Leader + Leader + t    | Display tasks              |
 | Leader + Leader + c    | Set char comment           |
 | Ctrl + s               | Save current file          |
 | Ctrl + b               | Open/close treeExplorer    |
