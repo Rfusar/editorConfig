@@ -10,6 +10,8 @@
 | Leader + f             | Menu Search                |
 | Leader + g             | Menu Git                   |
 | Leader + c             | Copy on system clipboard   |
+| Leader + cr            | Clean registries           |
+| Leader + crs           | Clear Search               |
 | Leader + pu            | PackerUpdate               |
 | Leader + ps            | PackerSync                 |
 | Leader + so            | Execute current file.lua   |
@@ -18,12 +20,28 @@
 | Leader + help          | Open this file             |
 | Leader + Leader + p    | Menu projects              |
 | Leader + Leader + t    | Display task               |
-| Leader + Leader + r    | Set replace word           |
 | Leader + Leader + c    | Set char comment           |
 | Ctrl + s               | Save current file          |
 | Ctrl + b               | Open/close treeExplorer    |
 | Ctrl + p               | Menu Macros                |
 
+    details:
+        with <leader><leader>c ->
+            you use the register 'e', meaning `@e`,
+            in visual block mode
+
+```lua
+function CleanRegistries()
+    local registers = { 
+        '"', '0', '1', '2', '3', '4', '5', 
+        '6', '7', '8', '9', 'a', 'b', 'c', 
+        'd','f', 'g', 'h', 'i', 'j', 
+        'k', 'l', 'm', 'n', 'o', 'p', 
+        's', 'u', 'v', 'x', 
+        'y', 'z', '*', '+'
+    }
+    -- ...
+```
 
 
 ## 2. Layout

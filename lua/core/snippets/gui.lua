@@ -10,10 +10,13 @@ local home = vim.fn.stdpath('config') .. "/lua/core/snippets/libs"
 
 -- Definisci i percorsi relativi rispetto al percorso attuale
 local snippets = {
-   ["HTML Default Page"] = home .. "/html.txt",
-   ["Server Init - Golang"] = home .. "/go_Server1.txt",
-   ["Server Utils -  Golang"] = home .. "/go_Server2.txt",
-   ["Connect Imap - Python"] = home .. "/py_Imap.txt",
+   ["Default Page - HTML"] = home .. "/html.html",
+   ["Server Init - Golang"] = home .. "/go_Server1.go",
+   ["Server Utils -  Golang"] = home .. "/go_Server2.go",
+   ["Connect Imap - Python"] = home .. "/py_Imap.py",
+   ["Layout - CSS"] = home .. "/web/css/layout.css",
+   ["Base - CSS"] = home .. "/web/css/index.css",
+   ["Animations - CSS"] = home .. "/web/css/animations.css",
 }
 
 local snippet_names = {}
@@ -53,7 +56,7 @@ function M.custom_picker()
         if file then
             local content = file:read("*all")
             file:close()
-            vim.fn.setreg("+", content)  -- Copia il contenuto negli appunti
+            vim.fn.setreg('"', content)  -- Copia il contenuto negli appunti
         end
       end)
       return true
