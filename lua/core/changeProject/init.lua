@@ -9,5 +9,10 @@ function OpenProject()
         vim.cmd('e .')
     end
 end
-
+function OpenProjectNotSaved()
+    local path = vim.fn.input("Absolute Path:")
+    vim.fn.chdir(path)
+    vim.cmd('e .')
+end
 key("n", "<leader><leader>p", ":lua OpenProject()<CR>", {noremap=true, silent=true})
+key("n", "<leader><leader>m", ":lua OpenProjectNotSaved()<CR>", {noremap=true, silent=true})

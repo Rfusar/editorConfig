@@ -9,7 +9,7 @@ local function open_file_in_split(file_path)
     end
 end
 
-local filepath = vim.fn.stdpath('config') .. "/lua/core/ricordi/ricordi.txt"
+local filepath = vim.fn.stdpath('config') .. "/lua/core/ricordi/ricordi.md"
 local key = vim.api.nvim_set_keymap
 
 function Ricordi()

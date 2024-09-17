@@ -21,6 +21,8 @@
 | Leader + Leader + p    | Menu projects              |
 | Leader + Leader + t    | Display tasks              |
 | Leader + Leader + c    | Set char comment           |
+| Leader + Leader + rh   | Reboot LSP-Server          |
+| Leader + Leader + m    | Move in a Folder not saved |
 | Ctrl + s               | Save current file          |
 | Ctrl + b               | Open/close treeExplorer    |
 | Ctrl + p               | Menu Macros                |
@@ -29,6 +31,13 @@
         with <leader><leader>c ->
             you use the register 'e', meaning `@e`,
             in visual block mode
+    start:
+        @q: Select a word in visual mode and add double quotes around it.
+        @w: Select a text block in visual mode and add double quotes around the selection.
+        @d: In block visual mode, select multiple rows and delete the first character of each row.
+        @v: In block visual mode, select multiple rows and add a character at the beginning of each row.
+    PS:
+        Before using @v, you must populate the `v` register.
 
 ```lua
 function CleanRegistries()
