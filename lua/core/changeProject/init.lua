@@ -14,5 +14,10 @@ function OpenProjectNotSaved()
     vim.fn.chdir(path)
     vim.cmd('e .')
 end
-key("n", "<leader><leader>p", ":lua OpenProject()<CR>", {noremap=true, silent=true})
-key("n", "<leader><leader>m", ":lua OpenProjectNotSaved()<CR>", {noremap=true, silent=true})
+function SaveCWDClipboard() 
+    vim.fn.setreg("+", vim.fn.getcwd())
+end
+local opts = {noremap=true, silent=true}
+key("n", "<leader><leader>p", ":lua OpenProject()<CR>", opts)
+key("n", "<leader><leader>m", ":lua OpenProjectNotSaved()<CR>", opts)
+key("", "<leader><leader>ps", ":lua SaveCWDClipboard()<CR>", opts)

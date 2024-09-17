@@ -19,6 +19,7 @@
 | Leader + cfg           | Open nvim project          |
 | Leader + help          | Open this file             |
 | Leader + Leader + p    | Menu projects              |
+| Leader + Leader + ps   | Save the cwd in clipboard  |
 | Leader + Leader + t    | Display tasks              |
 | Leader + Leader + c    | Set char comment           |
 | Leader + Leader + rh   | Reboot LSP-Server          |
