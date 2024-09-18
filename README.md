@@ -4,6 +4,9 @@
 
 | Comando                | Descrizione                |
 | ---------------------- | -------------------------- |
+| Ctrl + s               | Save current file          |
+| Ctrl + b               | Open/close treeExplorer    |
+| Ctrl + p               | Menu Macros                |
 | Leader + sa            | Save all files             |
 | Leader + 123           | Row absolue                |
 | Leader + 010           | Row relative               |
@@ -22,11 +25,8 @@
 | Leader + Leader + ps   | PackerSync                 |
 | Leader + Leader + t    | Display tasks              |
 | Leader + Leader + c    | Set char comment           |
-| Leader + Leader + rh   | Reboot LSP-Server          |
 | Leader + Leader + m    | Move in a Folder not saved |
-| Ctrl + s               | Save current file          |
-| Ctrl + b               | Open/close treeExplorer    |
-| Ctrl + p               | Menu Macros                |
+
 
     details:
         with <leader><leader>c ->
@@ -99,8 +99,20 @@ function CleanRegistries()
 | F11                   | Next Step                   |
 | F12                   | ???                         |
 
+## 6. Helpers
+
+| Comando                | Descrizione                |
+| ---------------------- | -------------------------- |
+| Leader + Leader + lo   | LSP-Servers Off            |
+| Leader + Leader + lp   | LSP-Server Python          |
+| Leader + Leader + lj   | LSP-Server Js/Ts           |
+
+
+
 
 ### Extra
+
+per scaricare le dipendenze necessarie fare `:lua setup_environment()`
 
 font che permettono di visualiizare web-icon [font Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf)
 

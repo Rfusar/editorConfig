@@ -22,7 +22,6 @@ cmp.setup({
     })
 })
 
--- Lista dei server LSP e delle loro configurazioni
 local lsp_servers = {
     pyright = {},
     tsserver = {},
@@ -30,30 +29,15 @@ local lsp_servers = {
     -- gopls = {},
 }
 
-function RebootHelps(start)
-    local lsp = require('lspconfig')
-    local lettore = ""
-    
-    if not start then
-        lettore = vim.fn.input("Lag: ")
-        if lettore == "py" then lsp.pyright.setup{}
-        elseif lettore == "js" then lsp.ts_ls.setup{}
-        elseif lettore == "off" then
-            local clients = vim.lsp.get_active_clients()
-            for _, client in ipairs(clients) do
-                client.stop()
-            end
-        end
-    else
-        lsp.pyright.setup{}
+function OffLspServers()
+    local clients = vim.lsp.get_active_clients()
+    for _, client in ipairs(clients) do
+        client.stop()
     end
-    
-    -- Log del risultato
-    C.SetColors("RebootHelps Success: " .. lettore, "Success", "[OK]")
+    C.SetColors("OffLspServers Success: ", "Success", "[OK]")
 end
 
--- Chiamata della funzione al caricamento
-RebootHelps(true)
-
--- Mappatura dei tasti per attivare `RebootHelps`
-vim.keymap.set('n', '<leader><leader>rh', ':lua RebootHelps(false)<CR>', { noremap = true, silent = true })
+local opts = {noremap=true, silent=true}
+vim.keymap.set('n', '<leader><leader>lp', ':lua require("lspconfig").pyright.setup({})<CR>', opts)
+vim.keymap.set('n', '<leader><leader>lj', ':lua require("lspconfig").ts_ls.setup({})<CR>', opts)
+vim.keymap.set('n', '<leader><leader>lo', ':lua OffLspServers()<CR>', opts)
