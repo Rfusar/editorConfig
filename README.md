@@ -13,13 +13,13 @@
 | Leader + cr            | Clean registries           |
 | Leader + crs           | Clear Search               |
 | Leader + pu            | PackerUpdate               |
-| Leader + ps            | PackerSync                 |
+| Leader + ps            | Save the cwd in clipboard  |
 | Leader + so            | Execute current file.lua   |
 | Leader + tag           | Set tag html               |
 | Leader + cfg           | Open nvim project          |
 | Leader + help          | Open this file             |
 | Leader + Leader + p    | Menu projects              |
-| Leader + Leader + ps   | Save the cwd in clipboard  |
+| Leader + Leader + ps   | PackerSync                 |
 | Leader + Leader + t    | Display tasks              |
 | Leader + Leader + c    | Set char comment           |
 | Leader + Leader + rh   | Reboot LSP-Server          |
@@ -82,6 +82,15 @@ function CleanRegistries()
 | Leader + sni           | Menu Template                |
 
 
+## 5. Debugger (Normal Mode)
+
+| Comando               | Descrizione               |
+| --------------------- | ------------------------- |
+| Leader + Leader + b   | Set debug python(system)  |
+| Leader + Leader + bv  | Set debug python(venv)    |
+| Leader + bv           | Set BreakPoint            |
+
+
 ### Extra
 
 font che permettono di visualiizare web-icon [font Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf)
@@ -95,3 +104,6 @@ Nel caso si volesse avere javascript/typescript e python disponibili
     
     javascript/typescript -> npm install typescript-language-server
     python -> npm install pyright-langserver 
+
+per il debugger
+    `pip install debugpy`

@@ -22,7 +22,11 @@ return require('packer').startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, 
   })
 
- -- Plugin per LSP (Language Server Protocol)
+  --Debugger
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} } 
+
+  -- Plugin per LSP (Language Server Protocol)
   use 'neovim/nvim-lspconfig'    
 
   -- Plugin per nvim-cmp e le sue fonti

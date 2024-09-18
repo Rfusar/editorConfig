@@ -1,20 +1,29 @@
 vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-         
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.relativenumber = true
-vim.opt.autoread = true
+if vim.loop.os_uname().sysname == "Windows_NT" then vim.opt.clipboard = 'unnamedplus' end
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.mouse = 'a'              
+
+-- Tab
+vim.opt.tabstop = 4          
+vim.opt.softtabstop = 4             
+vim.opt.shiftwidth = 4             
+vim.opt.expandtab = true    
+
+-- UI config
+vim.opt.number = true      
+vim.opt.relativenumber = true     
+vim.opt.cursorline = true    
+vim.opt.splitbelow = true    
+vim.opt.splitright = true   
 
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Packer and run script lua
 key("n", "<leader>so", ":source %<CR>", opts)
-key("n", "<leader>ps", ":PackerSync<CR>", opts)
+key("n", "<leader><leader>ps", ":PackerSync<CR>", opts)
 key("n", "<leader>pu", ":PackerUpdate<CR>", opts)
 
 -- Save file and files

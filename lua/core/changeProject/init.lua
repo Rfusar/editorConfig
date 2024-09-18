@@ -20,4 +20,4 @@ end
 local opts = {noremap=true, silent=true}
 key("n", "<leader><leader>p", ":lua OpenProject()<CR>", opts)
 key("n", "<leader><leader>m", ":lua OpenProjectNotSaved()<CR>", opts)
-key("", "<leader><leader>ps", ":lua SaveCWDClipboard()<CR>", opts)
+key("", "<leader>ps", ":lua SaveCWDClipboard()<CR>", opts)
