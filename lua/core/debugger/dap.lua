@@ -1,5 +1,27 @@
 local M = {}
 local dap = require('dap')
+local C = require('core.console.colors')
+
+local function get_python_path()
+    local is_windows = vim.fn.has('win32') == 1
+    local venv_path
+
+    if is_windows then
+        venv_path = vim.fn.getcwd() .. '\\venv\\Scripts\\python.exe'
+        if vim.fn.executable(venv_path) == 1 then
+            C.SetColors("Sono su windows ed'è presente il venv", 'Success', '[OK]')
+            return venv_path
+        end
+    else
+        venv_path = vim.fn.getcwd() .. '/venv/bin/python'
+        if vim.fn.executable(venv_path) == 1 then
+            C.SetColors("Sono su Unix-like ed'è presente il venv", 'Success', '[OK]')
+            return venv_path
+        end
+    end
+    C.SetColors("m'attacco al python di sistema per il debug", 'Success', '[OK]')
+    return is_windows and 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe' or '/usr/bin/python'
+end
 
 function M.InitDap()
     dap.adapters.python = function(cb, config)
@@ -17,7 +39,7 @@ function M.InitDap()
       else
         cb({
           type = 'executable',
-          command = 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe',
+          command = get_python_path(),  -- Usa la funzione per ottenere il percorso
           args = { '-m', 'debugpy.adapter' },
           options = {
             source_filetype = 'python',
@@ -33,7 +55,7 @@ function M.InitDap()
         name = "Launch file";
         program = "${file}";
         pythonPath = function()
-          return 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe'
+          return get_python_path()  -- Usa la funzione per ottenere il percorso
         end;
       },
     }
