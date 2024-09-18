@@ -84,11 +84,20 @@ function CleanRegistries()
 
 ## 5. Debugger (Normal Mode)
 
-| Comando               | Descrizione               |
-| --------------------- | ------------------------- |
-| Leader + Leader + b   | Set debug python(system)  |
-| Leader + Leader + bv  | Set debug python(venv)    |
-| Leader + bv           | Set BreakPoint            |
+| Comando               | Descrizione                 |
+| --------------------- | --------------------------- |
+| Leader + Leader + b   | Set debug python(system)    |
+| Leader + Leader + bv  | Set debug python(venv)      |
+| Leader + b            | Set BreakPoint              |
+| Leader + du           | View/close debugger-ui      |
+| Leader + db           | Show panel Brakpoints       |
+| Leader + dv           | Show panel Variables        |
+| Leader + ds           | Show panel Scopes           |
+| Leader + dt           | Terminate Debugger Session  |
+| F5                    | Start Debugger Session      |
+| F10                   | Next Move                   |
+| F11                   | Next Step                   |
+| F12                   | ???                         |
 
 
 ### Extra
