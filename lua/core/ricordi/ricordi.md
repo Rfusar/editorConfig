@@ -4,7 +4,19 @@
 1. New vesrion checkEmail
     OK -> Scorpora codice in funzioni piu piccole
 
-2. soluzione casistiche particolari -> jpg, xls, xlsx
-        ?Soluzione -> gestione dell'estensioni
+nel file su drive xlsx
+test -> mittente, exts_allegato
 
-3. test ordini in IMG -> guardare google drive -> cartella nuova
+-- POT: -> ChatGPT
+    .tipo di immagini (verificare che siano solo img)
+    .numerosita per mittente(jpg)
+
+-- Excel: -> ConvertIO
+    .numerosita per mittente(jpg)
+    
+    
+    
+
+
+-- attivare alival debug 
+
