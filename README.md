@@ -106,7 +106,7 @@ function CleanRegistries()
 | Leader + Leader + lo   | LSP-Servers Off            |
 | Leader + Leader + lp   | LSP-Server Python          |
 | Leader + Leader + lj   | LSP-Server Js/Ts           |
-
+| Alt + d                | Docs func (if exists)      |
 
 
 

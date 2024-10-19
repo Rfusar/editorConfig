@@ -16,6 +16,7 @@ local snippets = {
    ["Connect Imap - Python"] = home .. "/py_Imap.py",
    ["Base - CSS"] = home .. "/web/css/style.css",
    ["Utils - JS"] = home .. "/web/js/utils.js",
+   ["DownloadFile - JS"] = home .. "/web/js/downloadFile.js",
 }
 
 local snippet_names = {}

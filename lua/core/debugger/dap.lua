@@ -7,7 +7,7 @@ local function get_python_path()
     local venv_path
 
     if is_windows then
-        venv_path = vim.fn.getcwd() .. '\\venv\\Scripts\\python.exe'
+        venv_path = vim.fn.getcwd() .. '/venv/Scripts/python.exe'
         if vim.fn.executable(venv_path) == 1 then
             C.SetColors("Sono su windows ed'è presente il venv", 'Success', '[OK]')
             return venv_path
