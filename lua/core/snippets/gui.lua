@@ -17,6 +17,7 @@ local snippets = {
    ["Layout - CSS"] = home .. "/web/css/layout.css",
    ["Base - CSS"] = home .. "/web/css/index.css",
    ["Animations - CSS"] = home .. "/web/css/animations.css",
+   ["Utils - JS"] = home .. "/web/js/utils.js",
 }
 
 local snippet_names = {}
@@ -56,7 +57,7 @@ function M.custom_picker()
         if file then
             local content = file:read("*all")
             file:close()
-            vim.fn.setreg('"', content)  -- Copia il contenuto negli appunti
+            vim.fn.setreg('+', content)  -- Copia il contenuto negli appunti
         end
       end)
       return true

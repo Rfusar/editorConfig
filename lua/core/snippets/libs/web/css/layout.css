@@ -5,9 +5,24 @@
 .d-f-r-sb{display:flex;flex-direction: row;justify-content:space-between}
 .d-f-r-sa-c{display:flex;flex-direction:row;justify-content:space-around;align-items:center}
 .d-f-r-sb-c{display:flex;flex-direction: row;justify-content:space-between;align-items:center}
+.d-f-r-c-c{display:flex;flex-direction: row;justify-content:center;align-items:center}
 .d-f-c{display:flex;flex-direction:column}
 .d-f-c-sa{display:flex;flex-direction:column;justify-content:space-around}
 .d-f-c-sb{display:flex;flex-direction:column;justify-content:space-between}
 .d-f-c-sa-c{display:flex;flex-direction:column;justify-content:space-around;align-items:center}
 .d-f-c-sb-c{display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+.d-f-c-c-c{display:flex;flex-direction:column;justify-content:center;align-items:center}
 .flex-1{flex:1;}.flex-2{flex:2;}.flex-3{flex:3;}.flex-4{flex:4;}.flex-5{flex:5;}
+
+/* GRID Layout */
+.d-g {display: grid;}
+.d-g-c2 {display: grid;grid-template-columns: repeat(2, 1fr);}
+.d-g-c3 {display: grid;grid-template-columns: repeat(3, 1fr);}
+.d-g-c4 {display: grid;grid-template-columns: repeat(4, 1fr);}
+.d-g-r2 {display: grid;grid-template-rows: repeat(2, 1fr);}
+.d-g-r3 {display: grid;grid-template-rows: repeat(3, 1fr);}
+.d-g-gap {gap: 1rem;}
+.d-g-gap-lg {gap: 2rem;}
+.d-g-sa {display: grid;justify-content: space-around;}
+.d-g-sb {display: grid;justify-content: space-between;}
+.d-g-c-c {display: grid;justify-content: center;align-items: center;}
