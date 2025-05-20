@@ -1,23 +1,56 @@
+local pickers = require('telescope.pickers')
+local sorters = require('telescope.sorters')
+local finders = require('telescope.finders')
+local conf = require('telescope.config').values
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
+local themes = require('telescope.themes')
 local C = require("core.changeProject.const")
-local key = vim.keymap.set
 
-function OpenProject()
-    for k, _ in pairs(C.projects) do print(tostring(k)) end
-    local input = vim.fn.input("\nScegli: ")
-    if C.projects[input] then
-        vim.fn.chdir(C.projects[input])
-        vim.cmd('e .')
-    end
+local MenuSelect = {}
+for k, _ in pairs(C.projects) do
+  table.insert(MenuSelect, k)
 end
-function OpenProjectNotSaved()
-    local path = vim.fn.input("Absolute Path:")
-    vim.fn.chdir(path)
-    vim.cmd('e .')
+
+
+function MenuProject()
+  pickers.new(themes.get_dropdown({}), {
+    prompt_title = "Menu Project",
+    finder = finders.new_table({
+      results = MenuSelect,
+    }),
+    sorter = conf.generic_sorter({}),
+    attach_mappings = function(prompt_bufnr, map)
+      actions.select_default:replace(function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        
+        if selection then
+          local key = selection.value
+          local path = C.projects[key]
+          if path then
+              if key:match("FUNC -") then
+                
+                if key:match("Add New Path") then 
+                    local file_config = vim.fn.fnameescape(C.projects["LIB - nvim"].."/lua/core/changeProject/const.lua")
+                    vim.cmd("edit ".. file_config)
+
+                elseif key:match("Copy Current Directory") then 
+                    vim.fn.setreg("+", vim.fn.expand("%:p"))
+                
+                end
+
+              else
+                vim.cmd("lcd " .. vim.fn.fnameescape(path))
+                vim.cmd("edit .")
+              end
+          end
+        end
+      end)
+      return true
+    end,
+  }):find()
 end
-function SaveCWDClipboard() 
-    vim.fn.setreg("+", vim.fn.getcwd())
-end
-local opts = {noremap=true, silent=true}
-key("n", "<leader><leader>p", ":lua OpenProject()<CR>", opts)
-key("n", "<leader><leader>m", ":lua OpenProjectNotSaved()<CR>", opts)
-key("", "<leader>ps", ":lua SaveCWDClipboard()<CR>", opts)
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set("", "<leader>ps", ":lua MenuProject()<CR>", opts)

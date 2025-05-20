@@ -1,13 +1,49 @@
 
 local builtin = require('telescope.builtin')
 
-function getGit()
-    local res = vim.fn.input("[commits, branches, status] Scelta: ")
+local pickers = require('telescope.pickers')
+local finders = require('telescope.finders')
+local conf = require('telescope.config').values
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
+local themes = require('telescope.themes')
 
-    if res == "commits" then builtin.git_commits()
-    elseif res == "branches" then builtin.git_branches()
-    elseif res == "status" then builtin.git_status()
-    end
+-- require('nvim-treesitter.configs').setup({
+--   highlight = { enable = true },
+--   ensure_installed = { "python", }, 
+-- })
+
+--  require('telescope.builtin').buffers()
+function getGit()
+  pickers.new(themes.get_dropdown({}), {
+    prompt_title = "Menu Project",
+    finder = finders.new_table({
+      results = {
+          "Commits", "Branches", "Status",
+      },
+    }),
+    sorter = conf.generic_sorter({
+      sorting_strategy = "ascending", -- oppure "descending"
+    }),
+    attach_mappings = function(prompt_bufnr, map)
+      actions.select_default:replace(function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        
+        if selection then
+          local key = selection.value
+          if key then
+                vim.notify(key)
+                if key == "Commits" then builtin.git_commits()
+                elseif key == "Branches" then builtin.git_branches()
+                elseif key == "Status" then builtin.git_status()
+                end
+          end
+        end
+      end)
+      return true
+    end,
+  }):find()
 end
 
 function getSearch()
@@ -17,6 +53,8 @@ function getSearch()
     elseif res == "search" then builtin.live_grep()
     end
 end
+
+
 
 vim.keymap.set('n', '<leader>g', getGit, {})
 vim.keymap.set('n', '<leader>f', getSearch, {})

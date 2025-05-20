@@ -53,9 +53,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
 })
 key("v", "<leader>c", '"+y')
 
--- deleteComment registry d
-local stringa = vim.api.nvim_replace_termcodes('I<Del><Esc>', true, false, true)
-vim.fn.setreg('d', stringa)
 
 -- Remote Configuration 
 local OS = vim.loop.os_uname().sysname

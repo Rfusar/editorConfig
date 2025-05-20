@@ -4,20 +4,23 @@ local OS = vim.loop.os_uname().sysname
 
 if OS == "Windows_NT" then
     M.projects = {
-        ["powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
-        ["nvim"] = "C:/Users/Utente/AppData/Local/nvim",
-        ["python"] = "C:/Users/Utente/Desktop/MyPackPython",
-        ["LactalisCheckEmail"] = "C:/Users/Utente/Desktop/eseguibili/checkEmail-lactalis",
-        ["LactalisToKofax"] = "C:/Users/Utente/Desktop/eseguibili/toKofax-lactalis",
+        ["LIB - powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
+        ["LIB - nvim"] = "C:/Users/Utente/AppData/Local/nvim",
+        ["LIB - python"] = "C:/Users/Utente/Desktop/MyLibrary/MyPackPython",
+        ["WORK - KTA"] = "C:/Users/Utente/Desktop/RDP/KTA",
+        ["WORK - DoValue - Document Generator"] = "C:/Users/Utente/Desktop/RDP/DoValue/databackbone",
+        ["FUNC - Add New Path"] = "",
+        ["SYS - Copy Current Directory"] = "",
     }
 
 
 elseif OS == "Linux" then
     M.projects = {
-        ["powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
-        ["nvim"] = "C:/Users/Utente/AppData/Local/nvim",
-        ["python"] = "C:/Users/Utente/Desktop/MyPackPython",
-        ["LactalisDashboard"] = "",
+        ["LIB - powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
+        ["LIB - nvim"] = "C:/Users/Utente/AppData/Local/nvim",
+        ["LIB - python"] = "C:/Users/Utente/Desktop/MyPackPython",
+        ["FUNC - Add New Path"] = "",
+        ["SYS - Copy Current Directory"] = "",
     }
 end
 

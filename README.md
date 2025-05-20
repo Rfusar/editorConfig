@@ -1,62 +1,40 @@
 # My Editor Config (NVIM)
 
-## 1. Shortcut
+## Shortcut
 
-| Comando                | Descrizione                |
-| ---------------------- | -------------------------- |
-| Ctrl + s               | Save current file          |
-| Ctrl + b               | Open/close treeExplorer    |
-| Ctrl + p               | Menu Macros                |
-| Leader + sa            | Save all files             |
-| Leader + 123           | Row absolue                |
-| Leader + 010           | Row relative               |
-| Leader + f             | Menu Search                |
-| Leader + g             | Menu Git                   |
-| Leader + c             | Copy on system clipboard   |
-| Leader + cr            | Clean registries           |
-| Leader + crs           | Clear Search               |
-| Leader + pu            | PackerUpdate               |
-| Leader + ps            | Save the cwd in clipboard  |
-| Leader + so            | Execute current file.lua   |
-| Leader + tag           | Set tag html               |
-| Leader + cfg           | Open nvim project          |
-| Leader + help          | Open this file             |
-| Leader + Leader + p    | Menu projects              |
-| Leader + Leader + ps   | PackerSync                 |
-| Leader + Leader + t    | Display tasks              |
-| Leader + Leader + c    | Set char comment           |
-| Leader + Leader + m    | Move in a Folder not saved |
+### 0. NVIM
 
+> For updating the system
 
-    details:
-        with <leader><leader>c ->
-            you use the register 'e', meaning `@e`,
-            in visual block mode
-    start:
-        @q: Select a word in visual mode and add double quotes around it.
-        @w: Select a text block in visual mode and add double quotes around the selection.
-        @d: In block visual mode, select multiple rows and delete the first character of each row.
-        @v: In block visual mode, select multiple rows and add a character at the beginning of each row.
-    PS:
-        Before using @v, you must populate the `v` register.
+| Comando                | Descrizione                      |
+| ---------------------- | --------------------------       |
+| Leader + pu            | PackerUpdate                     |
+| Leader + Leader + ps   | PackerSync                       |
+| Leader + so            | Execute current file.lua         |
+| Leader + fh            | nvim's menu help                 |
 
-```lua
-function CleanRegistries()
-    local registers = { 
-        '"', '0', '1', '2', '3', '4', '5', 
-        '6', '7', '8', '9', 'a', 'b', 'c', 
-        'd','f', 'g', 'h', 'i', 'j', 
-        'k', 'l', 'm', 'n', 'o', 'p', 
-        's', 'u', 'v', 'x', 
-        'y', 'z', '*', '+'
-    }
-    -- ...
-```
+    
+### 1. System
+
+| Comando                | Descrizione                      |
+| ---------------------- | --------------------------       |
+| Leader + cfg           | Open nvim project                |
+| Ctrl + s               | Save current file                |
+| Ctrl + b               | Open/close treeExplorer          |
+| Ctrl + f               | change colorschema               |
+| Leader + g             | Menu Git                         |
+| Leader + sa            | Save all files                   |
+| Leader + c             | Copy on system clipboard         |
+| Leader + cr            | Clean registries                 |
+| Leader + crs           | Clear Search                     |
+| Leader + f             | Menu Search                      |
+| Leader + help          | Open this file                   |
 
 
-## 2. Layout
+### 2. Layout
 
-    - Gestione grandezza Finestra in caso lo schermo ha piu file da gestire
+#### 2.1  Current tab size management
+> In case you have multiple files open at the same time, it allows you to resize the tab
 
 | Comando    | Descrizione    |
 | ---------- | -------------- |
@@ -65,8 +43,20 @@ function CleanRegistries()
 | Alt + u    | To the up      |
 | Alt + d    | To the down    |
 
+#### 2.2 Row numbering tab
+> To set the numbers to the edge of the tab
 
-## 3. Lettori
+| Comando    | Descrizione    |
+| ---------- | -------------- |
+| Leader + 123           | Row absolue                      |
+| Leader + 010           | Row relative                     |
+
+
+
+### 3. Previewer file
+
+> For now yes I can read md files, with the relative command, start a server where the service to interpret markdown files is exposed
+similar also for CSV files
 
 | Comando      | Descrizione                            |
 | ------------ | -------------------------------------- |
@@ -74,15 +64,15 @@ function CleanRegistries()
 | Leader + mds | Enable server mode to read the file MD |
 | Leader + mdq | Disable server mode to read the file MD |
 
+| Comando                | Descrizione                      |
+| ---------------------- | --------------------------       |
+| Leader + qs            | Set a funcs on registry          | 
+| Leader + qe            | excecute a funcs of registry     | 
+| Leader + Leader + t    | Display tasks                    |
+| Leader + Leader + m    | Move in a Folder not saved       |
 
-## 4. Snippets (Template)
 
-| Comando                | Descrizione                  |
-| ---------------------- | ---------------------------- |
-| Leader + sni           | Menu Template                |
-
-
-## 5. Debugger (Normal Mode)
+### 3. Debugger (Normal Mode)
 
 | Comando               | Descrizione                 |
 | --------------------- | --------------------------- |
@@ -99,7 +89,7 @@ function CleanRegistries()
 | F11                   | Next Step                   |
 | F12                   | ???                         |
 
-## 6. Helpers
+### 4. Helpers
 
 | Comando                | Descrizione                |
 | ---------------------- | -------------------------- |
@@ -108,6 +98,25 @@ function CleanRegistries()
 | Leader + Leader + lj   | LSP-Server Js/Ts           |
 | Alt + d                | Docs func (if exists)      |
 
+## CustomTools
+
+### 1. Snippets (Template)
+
+> With this tool, going to the file C:\Users\User\AppData\Local\nvim\lua\core\snippets\gui.lua you can customize the paths of the snippets
+and in the folder "libs" present in the folder "snippets" you can update your things, in the main clipboard.
+
+| Comando                | Descrizione                  |
+| ---------------------- | ---------------------------- |
+| Leader + sni           | Menu Template                |
+
+### 1. Change Project
+
+> With this tool, going to the file C:\Users\User\AppData\Local\nvim\lua\core\snippets\gui.lua you can customize the paths of the snippets
+and in the folder "libs" present in the folder "snippets" you can update your things, in the main clipboard.
+
+| Comando                | Descrizione                  |
+| ---------------------- | ---------------------------- |
+| Leader + ps            | Menu Project                 |
 
 
 ### Extra

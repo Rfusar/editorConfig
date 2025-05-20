@@ -1,13 +1,18 @@
 vim.cmd [[packadd packer.nvim]]
 
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.8' }
+  -- use ('nvim-treesitter/nvim-treesitter', {run = ":TSUpdate"})
+  
   use 'nvim-tree/nvim-web-devicons'
 
   use ('nvim-tree/nvim-tree.lua', {run = ':TSUpdate'})
+
+
 
   use { "catppuccin/nvim", as = "catppuccin" }
 
