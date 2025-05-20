@@ -26,9 +26,30 @@ key("n", "<leader>so", ":source %<CR>", opts)
 key("n", "<leader><leader>ps", ":PackerSync<CR>", opts)
 key("n", "<leader>pu", ":PackerUpdate<CR>", opts)
 
+key('n', '<leader>fh', ":lua require('telescope.builtin').help_tags()<CR>", {})
 -- Save file and files
-key("", "<C-s>", ":w<CR>", ops)
-key("", "<leader>sa", ":wa<CR>", opts)
+key("", "<C-s>", ":w!<CR>", ops)
+key("", "<leader>sa", ":wa!<CR>", opts)
+
+--Registries
+function CleanRegistries()
+    local registers = { 
+        '"', '0', '1', '2', '3', '4', '5', 
+        '6', '7', '8', '9', 'a', 'b', 'c', 
+        'f', 'g', 'h', 'i', 'j', 
+        'k', 'l', 'm', 'n', 'o', 'p', 
+        's', 'u', 'v', 'x', 
+        'y', 'z', '*', '+'
+    }
+    for _, reg in ipairs(registers) do
+        vim.fn.setreg(reg, '')
+    end
+    C.SetColors('Clean Registries', 'Success', '[OK]')
+end
+function CleanSearch() vim.fn.setreg("/", '') end
+key('n', '<leader>crs', ':lua CleanSearch()<CR>', opts)
+key('n', '<leader>cr', ':lua CleanRegistries()<CR>', opts)
+
 
 -- Explorer file
 key("n", "<C-b>", ":NvimTreeToggle<CR>", opts)

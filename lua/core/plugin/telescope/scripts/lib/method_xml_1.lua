@@ -14,7 +14,6 @@ local function t(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-function setValue()
-    local v = vim.fn.input("value: ")
-    vim.fn.setreg("a", t("A<Esc>vh<Del>vbyA>"..v.."</<Esc>pa>"))
+function setValue(value)
+    vim.fn.setreg("a", t("A<Esc>vh<Del>vbyA>"..value.."</<Esc>pa>"))
 end

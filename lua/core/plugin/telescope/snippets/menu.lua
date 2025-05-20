@@ -6,7 +6,7 @@ local action_state = require('telescope.actions.state')
 
 local M = {}
 -- Ottieni il percorso di lavoro corrente
-local home = vim.fn.stdpath('config') .. "/lua/core/snippets/libs"
+local home = vim.fn.stdpath('config') .. "/lua/core/plugin/telescope/snippets/libs"
 
 -- Definisci i percorsi relativi rispetto al percorso attuale
 local snippets = {

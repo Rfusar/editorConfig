@@ -6,11 +6,11 @@ local action_state = require('telescope.actions.state')
 
 local M = {} -- it serve for importing scripts
 
-local home = vim.fn.stdpath('config') .. "/lua/core/funcs/scripts"
+local home = vim.fn.stdpath('config') .. "/lua/core/plugin/telescope/scripts/lib"
 
 local funcs = {
-    ["create tags  || create a file with the keys"] = home.."/tagsxml.txt",
-    ["complete tag "] = home.."/method1xml.txt",
+    ["create tags  || create a file with the keys"] = home.."/tagsxml.lua",
+    ["complete tag "] = home.."/method_xml_1.lua",
 }
 
 local func_names = {}
@@ -24,7 +24,7 @@ function M.custom_picker()
 
   pickers.new({}, {
     prompt_title = "Choose Macro",
-    border = false,
+    border = true,
     finder = finders.new_table {
       results = func_names -- Content left display
    },

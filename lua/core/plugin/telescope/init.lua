@@ -1,0 +1,108 @@
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+local builtin = require("telescope.builtin")
+local pickers = require('telescope.pickers')
+local finders = require("telescope.finders")
+local previewers = require("telescope.previewers")
+local conf = require("telescope.config").values
+local MP = require("core.plugin.telescope.changeProject.MenuProject")
+local SCR_M = require("core.plugin.telescope.scripts.menu")
+local SNI_M = require("core.plugin.telescope.snippets.menu")
+
+
+require("telescope").setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<leader>h"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          MyCustomMenu()
+        end,
+        ["<C-p>"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          MP.MenuProject()
+        end,
+        ["<C-b>"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          builtin.buffers()  -- o un altro picker
+        end,
+        ["<C-f>"] = function(prompt_bufnr)
+            actions.close(prompt_bufnr)
+            builtin.find_files()  -- o un altro picker
+        end,
+        ["<C-s>"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          builtin.live_grep()  -- o un altro picker
+        end,
+
+        -- GIT
+        ["<leader>gc"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          builtin.git_commits()  -- o un altro picker
+        end,
+        ["<leader>gb"] = function(prompt_bufnr)
+            actions.close(prompt_bufnr)
+            builtin.git_branches()  -- o un altro picker
+        end,
+        ["<leader>gs"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          builtin.git_status()  -- o un altro picker
+        end,
+      }
+    }
+  }
+}
+
+function MyCustomMenu()
+    pickers.new(require("telescope.themes").get_dropdown({}), {
+      prompt_title = "Documentazione",
+      finder = finders.new_table {
+        results = { "Visualizza documentazione" }, -- finta entry
+      },
+      previewer = previewers.new_buffer_previewer {
+        define_preview = function(self, _)
+          vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, vim.split([[
+# Action
+
+| Command      | Description      |
+|---------------------------------|
+| ctrl + b     | Menu Buffers     |
+| ctrl + f     | Menu Files       |
+| ctrl + s     | Menu Grep Search |
+| ctrl + p     | Menu Projects    |
+| leader + gc  | Git Commit       |
+| leader + gb  | Git Braches      |
+| leader + gs  | Git Status       |
+]], "\n"))
+            vim.bo[self.state.bufnr].filetype = "markdown"
+        end,
+      },
+      sorter = require("telescope.sorters").empty(),
+    }):find()
+end
+
+
+-- KEY MAPS
+vim.keymap.set("", "<leader>p", ":lua MyCustomMenu()<CR>", {})
+
+vim.keymap.set('', '<leader>qs', function()
+  SCR_M.custom_picker()
+end, opt)
+
+vim.keymap.set("n", "<leader>qe", function()
+  local reg = vim.fn.input("Registry: ")
+  local str = vim.fn.getreg(reg)
+
+  local fn, err = loadstring(str)
+  if not fn then
+    print("Errore nel parsing del codice: " .. err, vim.log.levels.ERROR)
+    return
+  end
+  fn()
+
+end, opt)
+
+
+vim.keymap.set('', '<leader>sni', function() 
+    SNI_M.custom_picker()
+end, opts)

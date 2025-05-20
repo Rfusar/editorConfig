@@ -22,12 +22,10 @@
 | Ctrl + s               | Save current file                |
 | Ctrl + b               | Open/close treeExplorer          |
 | Ctrl + f               | change colorschema               |
-| Leader + g             | Menu Git                         |
 | Leader + sa            | Save all files                   |
 | Leader + c             | Copy on system clipboard         |
 | Leader + cr            | Clean registries                 |
 | Leader + crs           | Clear Search                     |
-| Leader + f             | Menu Search                      |
 | Leader + help          | Open this file                   |
 
 
@@ -69,7 +67,6 @@ similar also for CSV files
 | Leader + qs            | Set a funcs on registry          | 
 | Leader + qe            | excecute a funcs of registry     | 
 | Leader + Leader + t    | Display tasks                    |
-| Leader + Leader + m    | Move in a Folder not saved       |
 
 
 ### 3. Debugger (Normal Mode)
@@ -109,14 +106,6 @@ and in the folder "libs" present in the folder "snippets" you can update your th
 | ---------------------- | ---------------------------- |
 | Leader + sni           | Menu Template                |
 
-### 1. Change Project
-
-> With this tool, going to the file C:\Users\User\AppData\Local\nvim\lua\core\snippets\gui.lua you can customize the paths of the snippets
-and in the folder "libs" present in the folder "snippets" you can update your things, in the main clipboard.
-
-| Comando                | Descrizione                  |
-| ---------------------- | ---------------------------- |
-| Leader + ps            | Menu Project                 |
 
 
 ### Extra

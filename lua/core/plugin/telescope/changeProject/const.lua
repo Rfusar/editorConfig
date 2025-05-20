@@ -9,7 +9,10 @@ if OS == "Windows_NT" then
         ["LIB - python"] = "C:/Users/Utente/Desktop/MyLibrary/MyPackPython",
         ["WORK - KTA"] = "C:/Users/Utente/Desktop/RDP/KTA",
         ["WORK - DoValue - Document Generator"] = "C:/Users/Utente/Desktop/RDP/DoValue/databackbone",
+        ["WORK - Fasdac - FattureV2"] = "C:/Users/Utente/Desktop/RDP/KTA/fasdac/FattureV2",
         ["FUNC - Add New Path"] = "",
+        ["FUNC - Add New Snippet"] = "",
+        ["FUNC - Add New Script"] = "",
         ["SYS - Copy Current Directory"] = "",
     }
 
