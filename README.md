@@ -2,7 +2,7 @@
 
 ## Shortcut
 
-### 0. NVIM
+### NVIM
 
 > For updating the system
 
@@ -28,6 +28,31 @@
 | Leader + crs           | Clear Search                     |
 | Leader + help          | Open this file                   |
 
+##### 1. Custom Menus
+
+```c 
+SNIPPETS_CONST:         "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\snippets\libs"
+SNIPPETS_CONFIG:        "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\snippets\menu.lua"
+
+CUSTOM_MENU_CONFIG:     "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\init.lua"
+
+DOCS_CONST:             "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\docs\const.lua"
+DOCS_CONFIG:            "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\docs\menu.lua"
+
+SET_FUNC_REG_CONST:     "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\scripts\lib"
+SET_FUNC_REG_CONFIG:    "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\scripts\menu.lua"
+
+TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ricordi.md"
+```
+
+| Comando                | Descrizione                  |
+| ---------------------- | ---------------------------- |
+| Leader + sni           | Menu Template                |
+| Leader + p             | Menu Shortcut                |
+| Leader + doc           | Menu Docs                    |
+| Leader + Leader + t    | Display tasks                |
+| Leader + qs            | [Set a funcs on registry](/lua/core/plugin/telescope/scrips/README.md)          | 
+| Leader + qe            | excecute a funcs of registry     | 
 
 ### 2. Layout
 
@@ -49,8 +74,6 @@
 | Leader + 123           | Row absolue                      |
 | Leader + 010           | Row relative                     |
 
-
-
 ### 3. Previewer file
 
 > For now yes I can read md files, with the relative command, start a server where the service to interpret markdown files is exposed
@@ -61,13 +84,6 @@ similar also for CSV files
 | Leader + csv | Read files CVS                         |
 | Leader + mds | Enable server mode to read the file MD |
 | Leader + mdq | Disable server mode to read the file MD |
-
-| Comando                | Descrizione                      |
-| ---------------------- | --------------------------       |
-| Leader + qs            | Set a funcs on registry          | 
-| Leader + qe            | excecute a funcs of registry     | 
-| Leader + Leader + t    | Display tasks                    |
-
 
 ### 3. Debugger (Normal Mode)
 
@@ -88,25 +104,12 @@ similar also for CSV files
 
 ### 4. Helpers
 
-| Comando                | Descrizione                |
-| ---------------------- | -------------------------- |
-| Leader + Leader + lo   | LSP-Servers Off            |
-| Leader + Leader + lp   | LSP-Server Python          |
-| Leader + Leader + lj   | LSP-Server Js/Ts           |
-| Alt + d                | Docs func (if exists)      |
-
-## CustomTools
-
-### 1. Snippets (Template)
-
-> With this tool, going to the file C:\Users\User\AppData\Local\nvim\lua\core\snippets\gui.lua you can customize the paths of the snippets
-and in the folder "libs" present in the folder "snippets" you can update your things, in the main clipboard.
-
 | Comando                | Descrizione                  |
-| ---------------------- | ---------------------------- |
-| Leader + sni           | Menu Template                |
-
-
+| ---------------------- | -----------------------------|
+| Leader + Leader + lo   | LSP-Servers Off              |
+| Leader + Leader + lp   | LSP-Server Python            |
+| Leader + Leader + lj   | LSP-Server Js/Ts             |
+| Alt + d                | Docs func (if lsp is active) |
 
 ### Extra
 

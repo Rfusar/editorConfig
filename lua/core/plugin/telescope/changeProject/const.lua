@@ -7,6 +7,7 @@ if OS == "Windows_NT" then
         ["LIB - powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
         ["LIB - nvim"] = "C:/Users/Utente/AppData/Local/nvim",
         ["LIB - python"] = "C:/Users/Utente/Desktop/MyLibrary/MyPackPython",
+        ["LIB - songs "] = "C:/Users/Utente/Desktop/altro/canzoni/testi/Influencer",
         ["WORK - KTA"] = "C:/Users/Utente/Desktop/RDP/KTA",
         ["WORK - DoValue - Document Generator"] = "C:/Users/Utente/Desktop/RDP/DoValue/databackbone",
         ["WORK - Fasdac - FattureV2"] = "C:/Users/Utente/Desktop/RDP/KTA/fasdac/FattureV2",

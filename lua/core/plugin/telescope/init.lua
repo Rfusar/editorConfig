@@ -22,17 +22,21 @@ require("telescope").setup {
           actions.close(prompt_bufnr)
           MP.MenuProject()
         end,
+        ["<C-c>"] = function(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          builtin.colorscheme()
+        end,
         ["<C-b>"] = function(prompt_bufnr)
           actions.close(prompt_bufnr)
-          builtin.buffers()  -- o un altro picker
+          builtin.buffers()
         end,
         ["<C-f>"] = function(prompt_bufnr)
             actions.close(prompt_bufnr)
-            builtin.find_files()  -- o un altro picker
+            builtin.find_files()
         end,
         ["<C-s>"] = function(prompt_bufnr)
           actions.close(prompt_bufnr)
-          builtin.live_grep()  -- o un altro picker
+          builtin.live_grep()
         end,
 
         -- GIT
@@ -64,15 +68,16 @@ function MyCustomMenu()
           vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, vim.split([[
 # Action
 
-| Command      | Description      |
-|---------------------------------|
-| ctrl + b     | Menu Buffers     |
-| ctrl + f     | Menu Files       |
-| ctrl + s     | Menu Grep Search |
-| ctrl + p     | Menu Projects    |
-| leader + gc  | Git Commit       |
-| leader + gb  | Git Braches      |
-| leader + gs  | Git Status       |
+| Command      | Description       |
+|----------------------------------|
+| ctrl + b     | Menu Buffers      |
+| ctrl + f     | Menu Files        |
+| ctrl + s     | Menu Grep Search  |
+| ctrl + p     | Menu Projects     |
+| ctrl + c     | Menu ColorSchemas |
+| leader + gc  | Git Commit        |
+| leader + gb  | Git Braches       |
+| leader + gs  | Git Status        |
 ]], "\n"))
             vim.bo[self.state.bufnr].filetype = "markdown"
         end,
