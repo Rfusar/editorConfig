@@ -51,7 +51,7 @@ TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ric
 | Leader + p             | Menu Shortcut                |
 | Leader + doc           | Menu Docs                    |
 | Leader + Leader + t    | Display tasks                |
-| Leader + qs            | [Set a funcs on registry](/lua/core/plugin/telescope/scrips/README.md)          | 
+| Leader + qs            | [Set a funcs on registry](lua/core/plugin/telescope/scripts/README.md)          | 
 | Leader + qe            | excecute a funcs of registry     | 
 
 ### 2. Layout
