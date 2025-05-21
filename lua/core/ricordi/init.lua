@@ -9,11 +9,12 @@ local function open_file_in_split(file_path)
     end
 end
 
-local filepath = vim.fn.stdpath('config') .. "/lua/core/ricordi/ricordi.md"
-local key = vim.api.nvim_set_keymap
+local filepath_ricordi = vim.fn.stdpath('config') .. "/lua/core/ricordi/ricordi.md"
+local filepath_appunti = vim.fn.stdpath('config') .. "/lua/core/ricordi/appunti.txt"
 
-function Ricordi()
-    open_file_in_split(filepath)
-end
+function Ricordi() open_file_in_split(filepath_ricordi) end
+function Appunti() open_file_in_split(filepath_appunti) end
 
-key('n', '<leader><leader>t', ':lua Ricordi()<CR>', { noremap = true, silent = true })
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<leader><leader>t', ':lua Ricordi()<CR>', opts)
+vim.keymap.set('n', '<leader><leader>a', ':lua Appunti()<CR>', opts)
