@@ -56,7 +56,6 @@ require("telescope").setup {
     }
   }
 }
-
 function MyCustomMenu()
     pickers.new(require("telescope.themes").get_dropdown({  
         layout_config = {
