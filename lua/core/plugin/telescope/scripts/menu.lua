@@ -12,7 +12,6 @@ local home = vim.fn.stdpath('config') .. "/lua/core/plugin/telescope/scripts/lib
 local funcs = {
     ["create tags  || create a file with the keys"] = home.."/tagsxml.lua",
     ["complete tag "] = home.."/method_xml_1.lua",
-    ["push on your repository github"] = home.."/pushgithub.lua",
 }
 
 local func_names = vim.tbl_keys(funcs)

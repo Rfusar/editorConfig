@@ -7,6 +7,7 @@ local action_state = require('telescope.actions.state')
 local lib = require("core.plugin.telescope.docs.const")
 local home = vim.fn.stdpath('config') .. "/lua/core/plugin/telescope/docs"
 
+local M = {}
 
 function AddTable(table_IN, table_OUT)
     for k, _ in pairs(table_IN) do table.insert(table_OUT, k) end
@@ -40,7 +41,7 @@ AddTable(lib.DOC_LINKS, Menu_1)
 
 local last_selection = nil
 
-vim.keymap.set("", "<leader>doc", function()
+function M.custom_picker()
     Menu("Docs", Menu_1, function(prompt_bufnr, _)
         actions.select_default:replace(function()
             local selection = action_state.get_selected_entry()
@@ -71,4 +72,6 @@ vim.keymap.set("", "<leader>doc", function()
         end)
         return true
     end)
-end, {})
+end
+
+return M

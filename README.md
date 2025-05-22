@@ -55,6 +55,12 @@ TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ric
 | Leader + qs            | [Set a funcs on registry](lua/core/plugin/telescope/scripts/README.md)          | 
 | Leader + qe            | excecute a funcs of registry     | 
 
+##### 2. Custom funcs
+```vim
+:lua pushGithub("master", "origin", "comments")
+```
+[here script]("lua/core/plugin/init.lua")
+
 ### 2. Layout
 
 #### 2.1  Current tab size management

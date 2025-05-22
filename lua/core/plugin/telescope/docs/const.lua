@@ -16,11 +16,14 @@ M.DOC_LINKS = {
         ["tailwind"] = "https://tailwindcss.com/docs/installation/using-vite",
         ["nextjs"] = "https://nextjs.org/",
         ["react hooks"] = "https://react.dev/reference/react",
-    }
+    },
     ["tools"] = {
         ["docker docs"] = "https://docs.docker.com/reference/cli/docker/",
     }, 
-
+    ["AI"] = {
+        ["chatGPT"] = "https://chatgpt.com/",
+        ["deepseek"] = "https://chat.deepseek.com",
+    },
     -- FUNCS
     ["Add New Doc Page"] = "",
 }
