@@ -1,6 +1,8 @@
 -- HOW TO USE
 --
 -- registry a func that you can able to push on repository 
+--
+-- :lua pushGithub("master", "origin", "yourcomment")
 
 function pushGithub(branch, namespace, comment)
     -- Validate commit message

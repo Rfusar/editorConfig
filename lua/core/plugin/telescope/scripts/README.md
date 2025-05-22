@@ -1,3 +1,13 @@
+# pushgithub
+
+```lua
+-- HOW TO USE
+--
+-- registry a func that you can able to push on repository 
+--
+-- :lua pushGithub("master", "origin", "yourcomment")
+```
+
 # tragsxml
 
 ```lua
@@ -21,5 +31,5 @@
 -- TO
 --  <cmd>value</cmd>
 --
--- execute the function with :lua setValue()
+-- :lua setValue("value")
 ```
