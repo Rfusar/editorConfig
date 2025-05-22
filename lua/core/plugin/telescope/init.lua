@@ -58,31 +58,40 @@ require("telescope").setup {
 }
 
 function MyCustomMenu()
-    pickers.new(require("telescope.themes").get_dropdown({}), {
+    pickers.new(require("telescope.themes").get_dropdown({  
+        layout_config = {
+            height = 20,
+            width = 70,
+        }
+    }), 
+    {
       prompt_title = "Documentazione",
       finder = finders.new_table {
-        results = { "Visualizza documentazione" }, -- finta entry
+        results = {""}, -- finta entry
       },
       previewer = previewers.new_buffer_previewer {
         define_preview = function(self, _)
           vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, vim.split([[
-# Action
 
-| Command      | Description       |
-|----------------------------------|
-| ctrl + b     | Menu Buffers      |
-| ctrl + f     | Menu Files        |
-| ctrl + s     | Menu Grep Search  |
-| ctrl + p     | Menu Projects     |
-| ctrl + c     | Menu ColorSchemas |
-| leader + gc  | Git Commit        |
-| leader + gb  | Git Braches       |
-| leader + gs  | Git Status        |
+    ## MENU HELP  ##
+
+This page      ->  leader + h
+Active Project ->  ctrl + p
+ColorSchemas   ->  ctrl + c
+Buffers        ->  ctrl + b
+Files          ->  ctrl + f
+
+GIT
+
+  leader + gc  | Git Commit        
+  leader + gb  | Git Braches       
+  leader + gs  | Git Status        
+  
 ]], "\n"))
-            vim.bo[self.state.bufnr].filetype = "markdown"
         end,
       },
       sorter = require("telescope.sorters").empty(),
+      attach_mappings = function() return true end,
     }):find()
 end
 
@@ -107,7 +116,7 @@ vim.keymap.set("n", "<leader>qe", function()
 
 end, opt)
 
-
+-- SNIPPETS
 vim.keymap.set('', '<leader>sni', function() 
     SNI_M.custom_picker()
 end, opts)

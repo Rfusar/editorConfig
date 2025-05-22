@@ -4,6 +4,7 @@ require("catppuccin").setup({
         light = "latte",
         dark = "mocha",
     },
+    default_integrations = false,
     transparent_background = true, -- disables setting the background color.
     show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
     term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
@@ -21,7 +22,7 @@ require("catppuccin").setup({
         loops = {},
         functions = {"italic", "bold"},
         keywords = {},
-        strings = {},
+        strings = {"italic"},
         variables = {},
         numbers = {},
         booleans = {},
@@ -37,13 +38,15 @@ require("catppuccin").setup({
         crust = "#000000",
       }
     },
-    custom_highlights = {},
-    default_integrations = true,
+    custom_highlights = {
+      CommentRed = { fg = "#FF5555", bold = true },
+      CommentBlue = { fg = "#5555FF", bold = true },
+      CommentGreen = { fg = "#55FF55", bold = true },
+    },
     integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
-        treesitter = true,
         notify = false,
         mini = {
             enabled = true,

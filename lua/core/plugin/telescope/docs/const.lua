@@ -12,6 +12,16 @@ M.DOC_LINKS = {
         ["python"] = "https://docs.python.org/3/",
         ["C#"] = "https://learn.microsoft.com/en-us/dotnet/csharp/",
     },
+    ["GUI"] = {
+        ["tailwind"] = "https://tailwindcss.com/docs/installation/using-vite",
+        ["nextjs"] = "https://nextjs.org/",
+        ["react hooks"] = "https://react.dev/reference/react",
+    }
+    ["tools"] = {
+        ["docker docs"] = "https://docs.docker.com/reference/cli/docker/",
+    }, 
+
+    -- FUNCS
     ["Add New Doc Page"] = "",
 }
 
