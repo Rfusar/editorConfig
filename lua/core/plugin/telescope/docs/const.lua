@@ -2,7 +2,7 @@ local M = {}
 
 M.DOC_LINKS = {
     ["KTA"] = {
-        ["classes"] = "https://docshield.tungstenautomation.com/KTA/en_US/7.6.0-d4fslp3xyr/help/API/latest/index.html",
+        ["CaptureDocumentService"] = "https://docshield.tungstenautomation.com/KTA/en_US/7.6.0-d4fslp3xyr/help/API/latest/class_agility_1_1_sdk_1_1_services_1_1_capture_document_service.html"
     },
     ["KCM"] = {
         ["main_docs"] = "https://docshield.kofax.com/KCM/en_US/5.8.0-jx2hss7wd8/print/KofaxCommunicationsManagerTemplateScriptingLanguageDevelopersGuide_EN.pdf",

@@ -1,0 +1,16 @@
+*pushgithub.txt*    Plugin per il comando :PushGithub
+
+NAME
+    PushGithub - Esegue push su GitHub con 3 argomenti
+
+USAGE
+    :PushGithub <arg1> <arg2> <arg3>
+
+DESCRIPTION
+    Stampa i 3 argomenti passati (esempio base per comandi custom)
+
+SEE ALSO
+    :h user-commands
+
+
+

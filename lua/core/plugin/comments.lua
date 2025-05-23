@@ -7,34 +7,34 @@ local ns = vim.api.nvim_create_namespace("custom_comments")
 
 local patterns = {
   lua = {
-    danger = "^%-%-!.*",
-    question = "^%-%-%?.*",
-    todo = "^%-%-%s*TODO.*",
-    comment = "^%-%-.*",
+    danger = "%-%-!.*",
+    question = "%-%-%?.*",
+    todo = "%-%-%s*TODO.*",
+    comment = "%-%-%*.*",
   },
   python = {
-    danger = "^#!.*",
+    danger = "#!.*",
     question = "^#%?.*",
-    todo = "^#%s*TODO.*",
-    comment = "^#.*",
+    todo = "#%s*TODO.*",
+    comment = "#%*.*",
   },
   powershell = {
-    danger = "^#!.*",
+    danger = "#!.*",
     question = "^#%?.*",
-    todo = "^#%s*TODO.*",
-    comment = "^#.*",
+    todo = "#TODO.*",
+    comment = "#%*.*",
   },
   javascript = {
-    danger = "^//!.*",
+    danger = "//!.*",
     question = "^//%?.*",
-    todo = "^//%s*TODO.*",
-    comment = "^//.*",
+    todo = "//%s*TODO.*",
+    comment = "//%*.*",
   },
   c = {
-    danger = "^//!.*",
-    question = "^//%?.*",
-    todo = "^//%s*TODO.*",
-    comment = "^//.*",
+    danger = "//!.*",
+    question = "//%?.*",
+    todo = "//%s*TODO.*",
+    comment = "//%*.*",
   },
 }
 

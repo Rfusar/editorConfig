@@ -49,6 +49,7 @@ function M.MenuProject()
                 end
 
               else
+                require("nvim-tree.view").close()
                 vim.cmd("lcd " .. vim.fn.fnameescape(path))
                 vim.cmd("edit .")
               end

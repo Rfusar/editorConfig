@@ -18,10 +18,6 @@ require("telescope").setup {
           actions.close(prompt_bufnr)
           MyCustomMenu()
         end,
-        ["<C-p>"] = function(prompt_bufnr)
-          actions.close(prompt_bufnr)
-          MP.MenuProject()
-        end,
         ["<C-c>"] = function(prompt_bufnr)
           actions.close(prompt_bufnr)
           builtin.colorscheme()
@@ -75,7 +71,6 @@ function MyCustomMenu()
     ## MENU HELP  ##
 
 This page      ->  leader + h
-Active Project ->  ctrl + p
 ColorSchemas   ->  ctrl + c
 Buffers        ->  ctrl + b
 Files          ->  ctrl + f
@@ -101,9 +96,16 @@ vim.keymap.set("", "<leader>p", ":lua MyCustomMenu()<CR>", opt)
 -- DOC
 vim.keymap.set('', '<leader>doc', function() DOC_M.custom_picker() end, opt)
 
+-- SNIPPETS
+vim.keymap.set('', '<leader>sni', function()  SNI_M.custom_picker() end, opts)
+
+-- PROJECTS
+vim.keymap.set('', '<C-p>', function() MP.MenuProject() end, opt)
+
 -- REG FUNC 
 vim.keymap.set('', '<leader>qs', function() SCR_M.custom_picker() end, opt)
 
+-- EXECUTE FUNC
 vim.keymap.set("n", "<leader>qe", function()
   local reg = vim.fn.input("Registry: ")
   local str = vim.fn.getreg(reg)
@@ -117,7 +119,4 @@ vim.keymap.set("n", "<leader>qe", function()
 
 end, opt)
 
--- SNIPPETS
-vim.keymap.set('', '<leader>sni', function() 
-    SNI_M.custom_picker()
-end, opts)
+

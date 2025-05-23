@@ -17,6 +17,7 @@ local snippets = {
    ["Base - CSS"] = home .. "/web/css/style.css",
    ["Utils - JS"] = home .. "/web/js/utils.js",
    ["DownloadFile - JS"] = home .. "/web/js/downloadFile.js",
+   ["KTA - Activity C#"] = home .. "/KTA-activity.cs",
 }
 
 local snippet_names = {}

@@ -36,3 +36,12 @@ function pushGithub(branch, namespace, comment)
     
     print("Successfully pushed to "..namespace.."/"..branch)
 end
+
+vim.api.nvim_create_user_command(
+  "PushGithub",
+  function(opts)
+    local args = vim.split(opts.args, ", ")
+    pushGithub(args[1], args[2], args[3])
+  end,
+  { nargs = 1 }
+)
