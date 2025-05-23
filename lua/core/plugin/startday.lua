@@ -19,6 +19,7 @@ local links = {
     ["aruba"] = "https://webmail.aruba.it/",
     ["vm_zoho"] = "https://assist.zoho.eu/org/20105218809/app/home",
     ["zoho"] = "https://desk.zoho.eu/agent/nemesissolutionsag/nemesis-solutions-ag/tickets/list/open-cases?view=classic",
+    ["drive"] = "https://drive.google.com/drive/home",
 }
 for k, _ in pairs(links) do table.insert(name_links, k) end
 

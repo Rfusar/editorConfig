@@ -3,6 +3,7 @@ require("core.plugin.tree")
 require("core.plugin.color")
 require("core.plugin.autocompletamento")
 require("core.plugin.lettori")
+require("core.plugin.startday")
 require("core.plugin.comments")
 
 local N = require("core.plugin.notify")
