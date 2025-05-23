@@ -1,5 +1,3 @@
-local M = {}
-
 local notify = require("notify")
 
 local M = {}
@@ -13,8 +11,6 @@ M.myLog = function(msg)
         stages = "fade",
     })
 end
-
-return M
 
 local timer = vim.loop.new_timer()
 
