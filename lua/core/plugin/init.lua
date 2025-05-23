@@ -41,7 +41,7 @@ function pushGithub(branch, namespace, comment)
         return
     end
     
-    N.myLog("Successfully pushed to "..namespace.."/"..branch, "info")
+    N.myLog("Successfully pushed to "..namespace.."/"..branch, "error")
 end
 
 vim.api.nvim_create_user_command(
