@@ -28,7 +28,7 @@ function pushGithub(branch, namespace, comment)
         return
     end
     
-    local commit_result = vim.fn.system('git commit -m "'..comment..'"')
+    local commit_result = vim.fn.system({ "git", "commit", "-m", comment })
     if vim.v.shell_error ~= 0 then
         C.SetColors("Error committing: "..commit_result, "Danger")
         return
