@@ -18,10 +18,8 @@
 
 | Comando                | Descrizione                      |
 | ---------------------- | --------------------------       |
-| Leader + cfg           | Open nvim project                |
 | Ctrl + s               | Save current file                |
 | Ctrl + b               | Open/close treeExplorer          |
-| Ctrl + f               | change colorschema               |
 | Leader + sa            | Save all files                   |
 | Leader + c             | Copy on system clipboard         |
 | Leader + cr            | Clean registries                 |
@@ -45,19 +43,22 @@ SET_FUNC_REG_CONFIG:    "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telesc
 TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ricordi.md"
 ```
 
-| Comando                | Descrizione                  |
-| ---------------------- | ---------------------------- |
-| Leader + sni           | Menu Template                |
-| Leader + p             | Menu Shortcut                |
-| Leader + doc           | Menu Docs                    |
-| Leader + Leader + t    | Display tasks                |
-| Leader + Leader + a    | Display notes                |
+| Comando                | Descrizione                            |
+| ---------------------- | -------------------------------------- |
+| Leader + sni           | Menu Template                          |
+| Leader + p             | Menu Shortcut                          |
+| ctrl + p               | Menu Projects                          |
+| Leader + doc           | Menu Docs                              |
+| F2                     | Fast links (multiselect with tab)      |
+| Leader + Leader + t    | Display tasks                          |
+| Leader + Leader + a    | Display notes                          |
 | Leader + qs            | [Set a funcs on registry](lua/core/plugin/telescope/scripts/README.md)          | 
-| Leader + qe            | excecute a funcs of registry     | 
+| Leader + qe            | excecute a funcs of registry           | 
 
 ##### 2. Custom funcs
 ```vim
-:lua pushGithub("master", "origin", "comments")
+-- the separetor is the comma plus a space like this ", "
+:PushGithub master, origin, your comment
 ```
 [here script]("lua/core/plugin/init.lua")
 
@@ -79,7 +80,7 @@ TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ric
 | Comando    | Descrizione    |
 | ---------- | -------------- |
 | Leader + 123           | Row absolue                      |
-| Leader + 010           | Row relative                     |
+| Leader + 101           | Row relative                     |
 
 ### 3. Previewer file
 
@@ -118,7 +119,10 @@ similar also for CSV files
 | Leader + Leader + lj   | LSP-Server Js/Ts             |
 | Alt + d                | Docs func (if lsp is active) |
 
+
+
 ### Extra
+
 
 per scaricare le dipendenze necessarie fare `:lua setup_environment()`
 

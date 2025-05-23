@@ -74,17 +74,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
 })
 key("v", "<leader>c", '"+y')
 
-
--- Remote Configuration 
-local OS = vim.loop.os_uname().sysname
-if OS == "Windows_NT" then
-    key("", "<leader>cfg", function() vim.cmd(":!cmd.exe /c start nvim C:/Users/Utente/AppData/Local/nvim") end, opts)
-
-elseif OS == "Linux" then
-    key("", "<leader>cfg", function()  vim.cmd(":!x-terminal-emulator -e 'nvim ~/.config/nvim'")end, opts)
-
-end
-
 -- Help
 function Help()
     local file_path = vim.fn.stdpath('config').."/README.md"

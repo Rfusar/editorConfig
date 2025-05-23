@@ -4,7 +4,12 @@ require("core.plugin.color")
 require("core.plugin.autocompletamento")
 require("core.plugin.lettori")
 require("core.plugin.comments")
+require("core.plugin.notify")
 local C = require("core.console.colors")
+
+
+
+
 
 --GITHUB
 function pushGithub(branch, namespace, comment)
