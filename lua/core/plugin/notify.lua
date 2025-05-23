@@ -1,13 +1,20 @@
 local M = {}
 
-M.myLog = require("notify")
+local notify = require("notify")
 
-M.myLog.setup({
-    background_colour = "#000000",
-    timeout = 1000,
-    render = "default", -- compact - simple - minimal - default
-    stages = "fade",    -- fade_in_slide_out - fade - slide - static
-})  
+local M = {}
+
+M.myLog = function(msg)
+    notify(msg, {
+        title = "Notifica",
+        timeout = 1000,
+        background_colour = "#000000",
+        render = "default",
+        stages = "fade",
+    })
+end
+
+return M
 
 local timer = vim.loop.new_timer()
 
