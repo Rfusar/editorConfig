@@ -8,11 +8,7 @@ notify.setup({
 })
 
 local M = {}
-
-M.myLog = function(msg, level)
-  notify(msg, level or "info", { title = "Git Push" })
-end
-
+M.myLog = function(msg, type, opts) notify(msg, type, opts) end
 
 local timer = vim.loop.new_timer()
 
