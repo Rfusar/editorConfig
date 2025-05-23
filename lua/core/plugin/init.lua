@@ -31,7 +31,7 @@ function pushGithub(branch, namespace, comment)
     
     local commit_result = vim.fn.system({ "git", "commit", "-m", comment })
     if vim.v.shell_error ~= 0 then
-        N.myLog("Error committing: "..commit_result, "error", {timeout=60000})
+        N.myLog("Error committing: "..commit_result, "warning", {timeout=60000})
         return
     end
     
