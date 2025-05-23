@@ -5,6 +5,7 @@ notify.setup({
   timeout = 1000,
   render = "default",
   stages = "fade",
+  top_down = true,
 })
 
 local M = {}
