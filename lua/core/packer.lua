@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 
   use ('nvim-tree/nvim-tree.lua', {run = ':TSUpdate'})
 
-
+  use 'rcarriga/nvim-notify'
 
   use { "catppuccin/nvim", as = "catppuccin" }
 

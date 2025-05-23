@@ -141,6 +141,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Utente\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-nio",
     url = "https://github.com/nvim-neotest/nvim-nio"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "C:\\Users\\Utente\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "C:\\Users\\Utente\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
