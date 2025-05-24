@@ -1,6 +1,7 @@
 local M = {}
 local dap = require('dap')
 local C = require('core.console.colors')
+local log = require("core.plugin.notify")
 
 local function get_python_path()
     local is_windows = vim.fn.has('win32') == 1
@@ -9,17 +10,17 @@ local function get_python_path()
     if is_windows then
         venv_path = vim.fn.getcwd() .. '/venv/Scripts/python.exe'
         if vim.fn.executable(venv_path) == 1 then
-            C.SetColors("Sono su windows ed'è presente il venv", 'Success', '[OK]')
+            log.myLog("Sono su windows ed'è presente il venv", "info", {})
             return venv_path
         end
     else
         venv_path = vim.fn.getcwd() .. '/venv/bin/python'
         if vim.fn.executable(venv_path) == 1 then
-            C.SetColors("Sono su Unix-like ed'è presente il venv", 'Success', '[OK]')
+            log.myLog("Sono su Unix-like ed'è presente il venv", "info", {})
             return venv_path
         end
     end
-    C.SetColors("m'attacco al python di sistema per il debug", 'Success', '[OK]')
+    log.myLog("m'attacco al python di sistema per il debug", "info", {} )
     return is_windows and 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe' or '/usr/bin/python'
 end
 

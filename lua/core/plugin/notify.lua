@@ -25,3 +25,4 @@ timer:start(0, sleep, vim.schedule_wrap(function()
 end))
 
 return M
+
