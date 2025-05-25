@@ -56,7 +56,7 @@ TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ric
 | Leader + qe            | excecute a funcs of registry           | 
 
 ##### 2. Custom funcs
-```vim
+```lua
 -- The separetor is the comma plus a space like this ", "
 :PushGithub master, origin, your comment
 
