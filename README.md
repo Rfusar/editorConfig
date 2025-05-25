@@ -29,18 +29,18 @@
 ##### 1. Custom Menus
 
 ```c 
-SNIPPETS_CONST:         "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\snippets\libs"
-SNIPPETS_CONFIG:        "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\snippets\menu.lua"
+SNIPPETS_CONST:         "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/snippets/libs"
+SNIPPETS_CONFIG:        "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/snippets/menu.lua"
 
-CUSTOM_MENU_CONFIG:     "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\init.lua"
+CUSTOM_MENU_CONFIG:     "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/init.lua"
 
-DOCS_CONST:             "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\docs\const.lua"
-DOCS_CONFIG:            "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\docs\menu.lua"
+DOCS_CONST:             "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/docs/const.lua"
+DOCS_CONFIG:            "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/docs/menu.lua"
 
-SET_FUNC_REG_CONST:     "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\scripts\lib"
-SET_FUNC_REG_CONFIG:    "C:\Users\User\AppData\Local\nvim\lua\core\plugin\telescope\scripts\menu.lua"
+SET_FUNC_REG_CONST:     "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/scripts/lib"
+SET_FUNC_REG_CONFIG:    "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/scripts/menu.lua"
 
-TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ricordi.md"
+TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ricordi.md"
 ```
 
 | Comando                | Descrizione                            |
@@ -63,8 +63,8 @@ TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ric
 -- Create a NextJS Project with your custom components and other
 :CreateNextJS
 ```
-[PushGithub (source code)](lua\core\plugin\init.lua)
-[CreateNextJS (source code)](lua\core\plugin\telescope\initProject\dashboard\init.lua)
+[PushGithub (source code)](lua/core/plugin/init.lua)
+[CreateNextJS (source code)](lua/core/plugin/telescope/initProject/dashboard/init.lua)
 
 ### 2. Layout
 
