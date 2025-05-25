@@ -17,7 +17,7 @@ require("catppuccin").setup({
     no_bold = false, -- Force no bold
     no_underline = false, -- Force no underline
     styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = { "italic" }, -- Change the style of comments
+        comments = { }, -- Change the style of comments
         conditionals = { "italic" },
         loops = {},
         functions = {"italic", "bold"},
@@ -37,11 +37,6 @@ require("catppuccin").setup({
         mantle = "#000000",
         crust = "#000000",
       }
-    },
-    custom_highlights = {
-      CommentRed = { fg = "#FF5555", bold = true },
-      CommentBlue = { fg = "#5555FF", bold = true },
-      CommentGreen = { fg = "#55FF55", bold = true },
     },
     integrations = {
         cmp = true,

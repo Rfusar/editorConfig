@@ -1,0 +1,16 @@
+*createnextjs.txt*    Plugin per il comando :CreateNextJS
+
+NAME
+    CreateNextJS - Crea progetto NextJS
+
+USAGE
+    :CreateNextJS
+
+DESCRIPTION
+    Inizializza un progetto NextJS con dei componenti custom
+
+SEE ALSO
+    :h user-commands
+
+
+

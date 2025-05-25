@@ -57,10 +57,12 @@ TASKS_EDIT:             "C:\Users\Utente\AppData\Local\nvim\lua\core\ricordi\ric
 
 ##### 2. Custom funcs
 ```vim
--- the separetor is the comma plus a space like this ", "
+-- The separetor is the comma plus a space like this ", "
 :PushGithub master, origin, your comment
+
+-- Create a NextJS Project with your custom components and other
+:CreateNextJS
 ```
-[here script]("lua/core/plugin/init.lua")
 
 ### 2. Layout
 

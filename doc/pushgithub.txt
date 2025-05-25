@@ -4,10 +4,10 @@ NAME
     PushGithub - Esegue push su GitHub con 3 argomenti
 
 USAGE
-    :PushGithub <arg1> <arg2> <arg3>
+    :PushGithub <branch> <remote> <comment>
 
 DESCRIPTION
-    Stampa i 3 argomenti passati (esempio base per comandi custom)
+    Fai un push sul repository gia registrato
 
 SEE ALSO
     :h user-commands

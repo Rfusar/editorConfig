@@ -22,7 +22,7 @@ local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Packer and run script lua
-key("n", "<leader>so", ":source %<CR>", opts)
+key("n", "<leader>so", ":luafile %<CR>", opts)
 key("n", "<leader><leader>ps", ":PackerSync<CR>", opts)
 key("n", "<leader>pu", ":PackerUpdate<CR>", opts)
 
@@ -73,6 +73,15 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
     command = "checktime"
 })
 key("v", "<leader>c", '"+y')
+
+vim.o.viewoptions = "folds,cursor"  -- salva anche i fold
+vim.cmd [[
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * silent! mkview
+    autocmd BufWinEnter * silent! loadview
+  augroup END
+]]
 
 -- Help
 function Help()

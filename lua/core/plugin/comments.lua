@@ -1,41 +1,32 @@
-vim.api.nvim_set_hl(0, "CommentRed",   { fg = "#FF5555", bold = true, italic = true })
-vim.api.nvim_set_hl(0, "CommentBlue",  { fg = "#06E2CF", bold = true, italic = true })
-vim.api.nvim_set_hl(0, "CommentGreen", { fg = "#55FF55", bold = true, italic = true })
-vim.api.nvim_set_hl(0, "CommentTODO",  { fg = "#EAB810", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CommentRed",   { fg = "#FF5555", bg="#000000", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CommentBlue",  { fg = "#52CBFF", bg="#000000", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CommentGreen", { fg = "#55FF55", bg="#000000", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CommentTODO",  { fg = "#EAB810", bg="#000000", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CommentViolet",{ fg = "#EE33FF", bg="#000000", bold = true, italic = true })
 
 local ns = vim.api.nvim_create_namespace("custom_comments")
 
+local hash = { danger = "#!.*", question = "^#%?.*", todo = "#TODO.*", comment = "#%*.*", violet="#%..*"}
+local slash = { danger = "//!.*",question = "^//%?.*", todo = "//TODO.*", comment = "//%*.*", violet="//%..*" }
+local apos = { danger = "'!.*", question = "'%?.*", todo = "'TODO.*", comment = "'%*.*", violet="'%..*" }
+local minus = { danger = "%-%-!.*", question = "%-%-%?.*", todo = "%-%-TODO.*", comment = "%-%-%*.*", violet="%-%-%..*" }
+
+--!    test comment
+--?    test comment
+--.    test comment
+--*    test comment
+--TODO test comment
+
+
 local patterns = {
-  lua = {
-    danger = "%-%-!.*",
-    question = "%-%-%?.*",
-    todo = "%-%-%s*TODO.*",
-    comment = "%-%-%*.*",
-  },
-  python = {
-    danger = "#!.*",
-    question = "^#%?.*",
-    todo = "#%s*TODO.*",
-    comment = "#%*.*",
-  },
-  powershell = {
-    danger = "#!.*",
-    question = "^#%?.*",
-    todo = "#TODO.*",
-    comment = "#%*.*",
-  },
-  javascript = {
-    danger = "//!.*",
-    question = "^//%?.*",
-    todo = "//%s*TODO.*",
-    comment = "//%*.*",
-  },
-  c = {
-    danger = "//!.*",
-    question = "//%?.*",
-    todo = "//%s*TODO.*",
-    comment = "//%*.*",
-  },
+  lua = minus,
+  python = hash,
+  powershell = hash,
+  javascript = slash,
+  c = slash,
+  vb = apos,
+  cs = slash,
+  cpp = slash,
 }
 
 local function highlight(bufnr, filetype)
@@ -54,6 +45,8 @@ local function highlight(bufnr, filetype)
       vim.api.nvim_buf_add_highlight(bufnr, ns, "CommentBlue", i - 1, 0, len)
     elseif line:match(pat.todo) then
       vim.api.nvim_buf_add_highlight(bufnr, ns, "CommentTODO", i - 1, 0, len)
+    elseif line:match(pat.violet) then
+      vim.api.nvim_buf_add_highlight(bufnr, ns, "CommentViolet", i - 1, 0, len)
     elseif line:match(pat.comment) then
       vim.api.nvim_buf_add_highlight(bufnr, ns, "CommentGreen", i - 1, 0, len)
     end

@@ -10,7 +10,7 @@ if OS == "Windows_NT" then
         ["Update Nvim"] = "C:/Users/Utente/AppData/Local/nvim",
         ["WORK - Variables"] = "C:/Users/Utente/Desktop/TEMP_sistema config files",
         ["WORK - DoValue - Document Generator"] = "C:/Users/Utente/Desktop/RDP/DoValue/databackbone",
-        ["WORK - Fasdac - FattureV2"] = "C:/Users/Utente/Desktop/RDP/KTA/fasdac/FattureV2",
+        ["WORK - Fasdac"] = "C:/Users/Utente/Desktop/RDP/KTA/fasdac",
         ["FUNC - Add New Path"] = "",
         ["FUNC - Add New Snippet"] = "",
         ["FUNC - Add New Script"] = "",
