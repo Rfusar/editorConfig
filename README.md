@@ -63,8 +63,6 @@ TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ric
 -- Create a NextJS Project with your custom components and other
 :CreateNextJS
 ```
-[PushGithub (source code)](lua/core/plugin/init.lua)
-[CreateNextJS (source code)](lua/core/plugin/telescope/initProject/dashboard/init.lua)
 
 ### 2. Layout
 
@@ -144,3 +142,9 @@ Nel caso si volesse avere javascript/typescript e python disponibili
 
 per il debugger
     `pip install debugpy`
+
+per utilizzare live_grep con telescope
+```lua
+-- WINDOWS
+choco install ripgrep
+```
