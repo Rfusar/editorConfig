@@ -21,6 +21,7 @@ local links = {
     ["zoho"] = "https://desk.zoho.eu/agent/nemesissolutionsag/nemesis-solutions-ag/tickets/list/open-cases?view=classic",
     ["drive"] = "https://drive.google.com/drive/home",
     ["odoo"] = "https://erp.nemesisag.com/web#action=120&active_id=mail.box_inbox&cids=1&menu_id=82",
+    ["ticket - kofax"] = "https://partner.kofax.com/s/",
 }
 for k, _ in pairs(links) do table.insert(name_links, k) end
 
