@@ -8,17 +8,14 @@ require("core.plugin.comments")
 local C = require("core.console.colors")
 
 local log = require("notify")
+
 log.setup({
   fps=11,
   background_colour = "#000000",
-  timeout = 3000,
+  timeout = 1000,
   render = "default",
   stages = "fade",
-  top_down = true,
-  on_close = function()
-      local key = vim.api.nvim_replace_termcodes("<F2>", true, true, true)
-      vim.fn.feedkeys(key, "")
-  end
+  top_down = false,
 })
 
 
