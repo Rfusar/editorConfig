@@ -5,10 +5,21 @@ require("core.plugin.autocompletamento")
 require("core.plugin.lettori")
 require("core.plugin.startday")
 require("core.plugin.comments")
-
-local N = require("core.plugin.notify")
 local C = require("core.console.colors")
 
+local log = require("notify")
+log.setup({
+  fps=11,
+  background_colour = "#000000",
+  timeout = 3000,
+  render = "default",
+  stages = "fade",
+  top_down = true,
+  on_close = function()
+      local key = vim.api.nvim_replace_termcodes("<F2>", true, true, true)
+      vim.fn.feedkeys(key, "")
+  end
+})
 
 
 
@@ -17,7 +28,7 @@ local C = require("core.console.colors")
 function pushGithub(branch, namespace, comment)
     -- Validate commit message
     if comment == "" then
-        N.myLog("Commit message cannot be empty!", "error")
+        log("Commit message cannot be empty!", "error")
         return
     end
     -- Escape quotes in commit message
@@ -26,23 +37,23 @@ function pushGithub(branch, namespace, comment)
     -- Execute git commands with error handling
     local add_result = vim.fn.system('git add .')
     if vim.v.shell_error ~= 0 then
-        N.myLog("Error adding files: "..add_result, "error")
+        log("Error adding files: "..add_result, "error")
         return
     end
     
     local commit_result = vim.fn.system({ "git", "commit", "-m", comment })
     if vim.v.shell_error ~= 0 then
-        N.myLog("Error committing: "..commit_result, "error")
+        log("Error committing: "..commit_result, "error")
         return
     end
     
     local push_result = vim.fn.system({"git", "push", namespace, branch})
     if vim.v.shell_error ~= 0 then
-        N.myLog("Error pushing: "..push_result, "error")
+        log("Error pushing: "..push_result, "error")
         return
     end
     
-    N.myLog("Successfully pushed to "..namespace.."/"..branch, "info")
+    log("Successfully pushed to "..namespace.."/"..branch, "info")
 end
 
 vim.api.nvim_create_user_command(
