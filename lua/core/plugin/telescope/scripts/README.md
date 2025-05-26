@@ -8,7 +8,7 @@
 -- :lua pushGithub("master", "origin", "yourcomment")
 ```
 
-# tragsxml
+# tragsxml (no arguments)
 
 ```lua
 -- HOW TO USE
@@ -18,7 +18,7 @@
 --
 ```
 
-# method_xml_1
+# tragsxml (arg1 = value, arg2 = reg)
 
 ```lua
 -- HOW TO USE
@@ -31,5 +31,5 @@
 -- TO
 --  <cmd>value</cmd>
 --
--- :lua setValue("value")
+-- 
 ```

@@ -1,3 +1,6 @@
+require("core.plugin.telescope.scripts")
+require("core.plugin.telescope.initProject.dashboard")
+
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 local builtin = require("telescope.builtin")
@@ -6,7 +9,6 @@ local finders = require("telescope.finders")
 local previewers = require("telescope.previewers")
 local conf = require("telescope.config").values
 local MP = require("core.plugin.telescope.changeProject.MenuProject")
-local SCR_M = require("core.plugin.telescope.scripts.menu")
 local SNI_M = require("core.plugin.telescope.snippets.menu")
 local DOC_M = require("core.plugin.telescope.docs.menu")
 
@@ -101,22 +103,3 @@ vim.keymap.set('', '<leader>sni', function()  SNI_M.custom_picker() end, opts)
 
 -- PROJECTS
 vim.keymap.set('', '<C-p>', function() MP.MenuProject() end, opt)
-
--- REG FUNC 
-vim.keymap.set('', '<leader>qs', function() SCR_M.custom_picker() end, opt)
-
--- EXECUTE FUNC
-vim.keymap.set("n", "<leader>qe", function()
-  local reg = vim.fn.input("Registry: ")
-  local str = vim.fn.getreg(reg)
-
-  local fn, err = loadstring(str)
-  if not fn then
-    print("Errore nel parsing del codice: " .. err, vim.log.levels.ERROR)
-    return
-  end
-  fn()
-
-end, opt)
-
-

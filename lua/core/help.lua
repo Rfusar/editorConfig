@@ -22,20 +22,29 @@ function MenuHelp()
      Ctrl + b               | Open/close treeExplorer                 
      Leader + sa            | Save all files                          
      Leader + c             | Copy on system clipboard                
+
+
      Leader + cr            | Clean registries                        
      Leader + crs           | Clear Search                            
     
      Leader + help          | Open this file                          
+
+     Leader + Leader + t    | Display tasks                           
+     Leader + Leader + a    | Display notes                           
+
+     # Autocommand
+
+     :h PushGithub 
+     :h TagsXml
+
+     # Menu
+    
+     F2                     | Fast links (multiselect with tab)       
      Leader + sni           | Menu Template                           
      Leader + p             | Menu Shortcut                           
      ctrl + p               | Menu Projects                           
      Leader + doc           | Menu Docs                               
-     F2                     | Fast links (multiselect with tab)       
-     Leader + Leader + t    | Display tasks                           
-     Leader + Leader + a    | Display notes                           
-     Leader + qs            | Set a funcs                              
-     Leader + qe            | excecute a funcs of registry             
-    
+
      # Layout
     
      Alt + ,                | To the left                             

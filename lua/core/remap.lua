@@ -76,7 +76,8 @@ key("v", "<leader>c", '"+y')
 
 
 --TABS
-key("", "<C-t>", ":tab split<CR>", opts)
+key("", "<C-t>", ":tab split<CR>:-tabnext<CR>:q<CR>", opts)
+key("", "<C-t>a", ":tabonly<CR>", opts)
 
 
 vim.o.viewoptions = "folds,cursor"  -- salva anche i fold
