@@ -1,28 +1,63 @@
 local notify = require("notify")
 
 notify.setup({
+  fps=11,
   background_colour = "#000000",
-  timeout = 1000,
+  timeout = 3000,
   render = "default",
   stages = "fade",
   top_down = true,
+  on_close = function()
+      local key = vim.api.nvim_replace_termcodes("<F2>", true, true, true)
+      vim.fn.feedkeys(key, "")
+  end
 })
 
 local M = {}
-M.myLog = function(msg, type, opts) notify(msg, type, opts) end
+
+M.myLog = function(msg, type, opts)
+  notify(msg, type, opts)
+end
 
 local timer = vim.loop.new_timer()
 
-local sleep = 1 * 1000 * 60 -- 1min
-timer:start(0, sleep, vim.schedule_wrap(function()
-    local time = os.date("*t")  -- tabella con ora, min, sec, ecc.
+local sleep = 10 * 60 * 1000 -- 10 minuti (corretto ordine moltiplicazioni)
+local reminder = false
 
-    if time.hour == 12 and time.min == 00 then M.myLog("Segna il foglio ore su ODOO")
-    elseif time.hour == 12 and time.min == 30 then M.myLog("Segna il foglio ore su ODOO")
-    elseif time.hour == 17 and time.min == 30 then M.myLog("Segna il foglio ore su ODOO")
-    elseif time.hour == 18 and time.min == 00 then M.myLog("Segna il foglio ore su ODOO")
-    end
+timer:start(0, sleep, vim.schedule_wrap(function()
+  local time = os.date("*t")
+  -- reset reminder all'inizio di ogni ora per evitare blocchi a tempo indefinito
+  if time.min == 0 then
+    reminder = false
+  end
+
+  if not reminder and (time.hour == 8 or time.hour == 9) then
+    M.myLog([[
+
+Che si fa Oggi??
+
+]])
+    reminder = true
+    elseif not reminder and (time.hour == 12 or time.hour == 13) then
+    M.myLog([[
+
+| MATTINA |
+
+Segna il foglio ore su ODOO
+
+]])
+    reminder = true
+
+  elseif not reminder and (time.hour == 17 or time.hour == 18) then
+    M.myLog([[
+
+| POMERIGGIO |
+
+Segna il foglio ore su ODOO
+
+]])
+    reminder = true
+  end
 end))
 
 return M
-
