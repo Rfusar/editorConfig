@@ -1,5 +1,6 @@
 require("core.packer")
 require("core.remap")
+require("core.help")
 require("core.ricordi")
 require("core.plugin")
 require("core.debugger")

@@ -82,18 +82,3 @@ vim.cmd [[
     autocmd BufWinEnter * silent! loadview
   augroup END
 ]]
-
--- Help
-function Help()
-    local file_path = vim.fn.stdpath('config').."/README.md"
-    local file = io.open(file_path, "r")
-    if file then
-        file:close()
-        vim.cmd('leftabove vsplit ' .. file_path)
-        vim.cmd('vertical resize 70')
-    else
-        print("Errore: Impossibile aprire il file " .. file_path)
-    end
-end
-
-key('n', '<leader>help', ':lua Help()<CR>', opts)
