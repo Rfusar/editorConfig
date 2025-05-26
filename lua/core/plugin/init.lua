@@ -27,17 +27,17 @@ function pushGithub(branch, namespace, comment)
     
     local commit_result = vim.fn.system({ "git", "commit", "-m", comment })
     if vim.v.shell_error ~= 0 then
-        log("Error committing: "..commit_result, "error", {timeout=10000})
+        L.log("Error committing: "..commit_result, "error", {timeout=10000})
         return
     end
     
     local push_result = vim.fn.system({"git", "push", namespace, branch})
     if vim.v.shell_error ~= 0 then
-        log("Error pushing: "..push_result, "error", {timeout=10000})
+        L.log("Error pushing: "..push_result, "error", {timeout=10000})
         return
     end
     
-    log("Successfully pushed to "..namespace.."/"..branch, "info", {})
+    L.log("Successfully pushed to "..namespace.."/"..branch, "info", {timeout=500})
 end
 
 vim.api.nvim_create_user_command(
