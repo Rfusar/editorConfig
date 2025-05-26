@@ -7,16 +7,21 @@ notify.setup({
   render = "default",
   stages = "fade",
   top_down = true,
-  on_close = function()
-      local key = vim.api.nvim_replace_termcodes("<F2>", true, true, true)
-      vim.fn.feedkeys(key, "")
-  end
 })
 
 local M = {}
 
-M.myLog = function(msg, type, opts)
-  notify(msg, type, opts)
+M.log = function(msg, type, opts)
+    if opts == "work" then 
+        notify(msg, type, {
+            on_close = function()
+                local key = vim.api.nvim_replace_termcodes("<F2>", true, true, true)
+                vim.fn.feedkeys(key, "")
+            end
+        })
+
+    else notify(msg, type, opts)
+    end
 end
 
 local timer = vim.loop.new_timer()
@@ -32,30 +37,30 @@ timer:start(0, sleep, vim.schedule_wrap(function()
   end
 
   if not reminder and (time.hour == 8 or time.hour == 9) then
-    M.myLog([[
+    M.log([[
 
 Che si fa Oggi??
 
-]])
+]], "info", "work")
     reminder = true
     elseif not reminder and (time.hour == 12 or time.hour == 13) then
-    M.myLog([[
+    M.log([[
 
 | MATTINA |
 
 Segna il foglio ore su ODOO
 
-]])
+]], "info", "work")
     reminder = true
 
   elseif not reminder and (time.hour == 17 or time.hour == 18) then
-    M.myLog([[
+    M.log([[
 
 | POMERIGGIO |
 
 Segna il foglio ore su ODOO
 
-]])
+]], "info", "work")
     reminder = true
   end
 end))

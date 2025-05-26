@@ -6,26 +6,13 @@ require("core.plugin.lettori")
 require("core.plugin.startday")
 require("core.plugin.comments")
 local C = require("core.console.colors")
-
-local log = require("notify")
-
-log.setup({
-  fps=11,
-  background_colour = "#000000",
-  timeout = 1000,
-  render = "default",
-  stages = "fade",
-  top_down = false,
-})
-
-
-
+local L = require("core.plugin.notify")
 
 --GITHUB
 function pushGithub(branch, namespace, comment)
     -- Validate commit message
     if comment == "" then
-        log("Commit message cannot be empty!", "error")
+        L.log("Commit message cannot be empty!", "error", {timeout=10000})
         return
     end
     -- Escape quotes in commit message
@@ -34,23 +21,23 @@ function pushGithub(branch, namespace, comment)
     -- Execute git commands with error handling
     local add_result = vim.fn.system('git add .')
     if vim.v.shell_error ~= 0 then
-        log("Error adding files: "..add_result, "error")
+        L.log("Error adding files: "..add_result, "error", {timeout=10000})
         return
     end
     
     local commit_result = vim.fn.system({ "git", "commit", "-m", comment })
     if vim.v.shell_error ~= 0 then
-        log("Error committing: "..commit_result, "error")
+        log("Error committing: "..commit_result, "error", {timeout=10000})
         return
     end
     
     local push_result = vim.fn.system({"git", "push", namespace, branch})
     if vim.v.shell_error ~= 0 then
-        log("Error pushing: "..push_result, "error")
+        log("Error pushing: "..push_result, "error", {timeout=10000})
         return
     end
     
-    log("Successfully pushed to "..namespace.."/"..branch, "info")
+    log("Successfully pushed to "..namespace.."/"..branch, "info", {})
 end
 
 vim.api.nvim_create_user_command(
