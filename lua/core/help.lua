@@ -74,7 +74,7 @@ function MenuHelp()
      F12                   | ???                                      
     
     ]]
-    vim.api.nvim_buf_set_lines(b, 0, -1, false, vim.fn.split(menu, "\n"))
+    vim.api.nvim_buf_set_lines(b, 2, -1, false, vim.fn.split(menu, "\n"))
 end
 
 

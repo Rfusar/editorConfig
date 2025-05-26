@@ -74,6 +74,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
 })
 key("v", "<leader>c", '"+y')
 
+
+--TABS
+key("", "<C-t>", ":tab split<CR>", opts)
+
+
 vim.o.viewoptions = "folds,cursor"  -- salva anche i fold
 vim.cmd [[
   augroup remember_folds
