@@ -38,8 +38,9 @@ timer:start(0, sleep, vim.schedule_wrap(function()
 
   if not reminder and (time.hour == 8 or time.hour == 9) then
     M.log([[
+Buongiorno,
 
-Che si fa Oggi??
+    Che si fa Oggi??
 
 ]], "info", "work")
     reminder = true
