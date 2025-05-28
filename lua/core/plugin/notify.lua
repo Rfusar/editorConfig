@@ -63,6 +63,8 @@ Segna il foglio ore su ODOO
 
 ]], "info", "work")
     reminder = true
+else
+    reminder = false
   end
 end))
 

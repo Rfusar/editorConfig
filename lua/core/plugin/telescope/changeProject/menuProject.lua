@@ -32,15 +32,15 @@ function M.MenuProject()
               if key:match("FUNC -") then 
 
                 if key:match("Add New Path") then 
-                    local file_config = vim.fn.fnameescape(C.projects["LIB - nvim"].."/lua/core/plugin/telescope/changeProject/const.lua")
+                    local file_config = vim.fn.fnameescape(vim.fn.stdpath('config').."/lua/core/plugin/telescope/changeProject/const.lua")
                     vim.cmd("edit ".. file_config)
 
                 elseif key:match("Add New Script") then 
-                    local file_config = vim.fn.fnameescape(C.projects["LIB - nvim"].."/lua/core/plugin/telescope/scripts/")
+                    local file_config = vim.fn.fnameescape(vim.fn.stdpath('config').."/lua/core/plugin/telescope/scripts/")
                     vim.cmd("edit ".. file_config)
                 
                 elseif key:match("Add New Snippet") then 
-                    local file_config = vim.fn.fnameescape(C.projects["LIB - nvim"].."/lua/core/plugin/telescope/snippets/")
+                    local file_config = vim.fn.fnameescape(vim.fn.stdpath('config').."/lua/core/plugin/telescope/snippets/")
                     vim.cmd("edit ".. file_config)
 
                 elseif key:match("Copy Current Directory") then 

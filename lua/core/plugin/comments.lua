@@ -6,15 +6,15 @@ vim.api.nvim_set_hl(0, "CommentViolet",{ fg = "#EE33FF", bg="#000000", bold = tr
 
 local ns = vim.api.nvim_create_namespace("custom_comments")
 
-local hash = { danger = "#!.*", question = "^#%?.*", todo = "#TODO.*", comment = "#%*.*", violet="#%..*"}
-local slash = { danger = "//!.*",question = "^//%?.*", todo = "//TODO.*", comment = "//%*.*", violet="//%..*" }
-local apos = { danger = "'!.*", question = "'%?.*", todo = "'TODO.*", comment = "'%*.*", violet="'%..*" }
-local minus = { danger = "%-%-!.*", question = "%-%-%?.*", todo = "%-%-TODO.*", comment = "%-%-%*.*", violet="%-%-%..*" }
+local hash = { danger = "#!.*", question = "^#%?.*", todo = "#TODO.*", comment = "#%[DOC%].*", violet="#%..*"}
+local slash = { danger = "//!.*",question = "^//%?.*", todo = "//TODO.*", comment = "//%[DOC%].*", violet="//%..*" }
+local apos = { danger = "'!.*", question = "'%?.*", todo = "'TODO.*", comment = "'%[DOC%].*", violet="'%..*" }
+local minus = { danger = "%-%-!.*", question = "%-%-%?.*", todo = "%-%-TODO.*", comment = "%-%-%[DOC%].*", violet="%-%-%..*" }
 
 --!    test comment
 --?    test comment
 --.    test comment
---*    test comment
+--[DOC]    test comment
 --TODO test comment
 
 
