@@ -20,13 +20,19 @@ M.log = function(msg, type, opts)
             end
         })
 
-    else notify(msg, type, opts)
+    else notify([[
+
+
+    ]]..msg..[[
+
+
+]], type, opts)
     end
 end
 
 local timer = vim.loop.new_timer()
 
-local sleep = 10 * 60 * 1000 -- 10 minuti (corretto ordine moltiplicazioni)
+local sleep = 10 * 60 * 1000
 local reminder = false
 
 timer:start(0, sleep, vim.schedule_wrap(function()
@@ -41,29 +47,23 @@ timer:start(0, sleep, vim.schedule_wrap(function()
 Buongiorno,
 
     Che si fa Oggi??
-
-]], "info", "work")
+]], 
+"info", "work")
     reminder = true
     elseif not reminder and (time.hour == 12 or time.hour == 13) then
     M.log([[
-
-| MATTINA |
-
 Segna il foglio ore su ODOO
-
-]], "info", "work")
+]],
+"info", "work")
     reminder = true
 
   elseif not reminder and (time.hour == 17 or time.hour == 18) then
     M.log([[
-
-| POMERIGGIO |
-
 Segna il foglio ore su ODOO
-
-]], "info", "work")
+]],
+"info", "work")
     reminder = true
-else
+  else
     reminder = false
   end
 end))
