@@ -1,0 +1,2 @@
+origin	git@github.com-DEV:Rfusar/editorConfig.git (fetch)
+origin	git@github.com-DEV:Rfusar/editorConfig.git (push)
