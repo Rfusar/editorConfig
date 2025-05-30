@@ -28,6 +28,7 @@ function MenuHelp()
      Leader + crs           | Clear Search                            
     
      Leader + help          | Open this file                          
+     Leader + s             | search a word into current directory
 
      Leader + Leader + t    | Display tasks                           
      Leader + Leader + a    | Display notes                           

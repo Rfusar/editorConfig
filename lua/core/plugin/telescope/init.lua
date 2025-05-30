@@ -1,6 +1,7 @@
 require("core.plugin.telescope.scripts")
 require("core.plugin.telescope.initProject.dashboard")
 
+
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 local builtin = require("telescope.builtin")
@@ -32,10 +33,7 @@ require("telescope").setup {
             actions.close(prompt_bufnr)
             builtin.find_files()
         end,
-        ["<C-s>"] = function(prompt_bufnr)
-          actions.close(prompt_bufnr)
-          builtin.live_grep()
-        end,
+
 
         -- GIT
         ["<leader>gc"] = function(prompt_bufnr)
@@ -74,6 +72,7 @@ function MyCustomMenu()
 
 This page      ->  leader + h
 ColorSchemas   ->  ctrl + c
+Search         ->  ctrl + s
 Buffers        ->  ctrl + b
 Files          ->  ctrl + f
 

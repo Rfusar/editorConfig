@@ -79,6 +79,8 @@ key("v", "<leader>c", '"+y')
 key("", "<C-t>", ":tab split<CR>:-tabnext<CR>:q<CR>", opts)
 key("", "<C-t>a", ":tabonly<CR>", opts)
 
+key("", "<leader>s", ':lua require("telescope.builtin").live_grep({path_display="hidden"})<CR>', {})
+
 
 vim.o.viewoptions = "folds,cursor"  -- salva anche i fold
 vim.cmd [[

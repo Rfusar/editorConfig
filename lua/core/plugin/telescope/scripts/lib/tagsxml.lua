@@ -40,7 +40,7 @@ function checkTags(
     end
     temp_row = string.rep("    ", current_ct_obj["tab"]) .. temp_row
     --[DOC] se current_tab > saved_tab then close tag xml
-    --TODO decidere nome per variabile boolean per gestire la condizione
+--TODO decidere nome per variabile boolean per gestire la condizione
     if current_ct_obj["tab"] == 0 and prev_ct_obj["tab"] == 0 and prev_ct_obj["tag"] == current_ct_obj["tag"] then 
         temp_row = temp_row.."</"..xml_data[1]..">"
 
