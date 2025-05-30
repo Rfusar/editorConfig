@@ -21,7 +21,7 @@ if OS == "Windows_NT" then
 elseif OS == "Linux" then
     M.projects = {
         ["LIB - powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
-        ["LIB - nvim"] = "C:/Users/Utente/AppData/Local/nvim",
+        ["LIB - nvim"] = "/home/riccardo/.config/nvim",
         ["LIB - python"] = "C:/Users/Utente/Desktop/MyPackPython",
         ["FUNC - Add New Path"] = "",
         ["SYS - Copy Current Directory"] = "",
