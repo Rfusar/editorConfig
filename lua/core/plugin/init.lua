@@ -6,7 +6,6 @@ require("core.plugin.lettori")
 require("core.plugin.startday")
 require("core.plugin.comments")
 
-
 local C = require("core.console.colors")
 local L = require("core.plugin.notify")
 
