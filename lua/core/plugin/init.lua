@@ -32,6 +32,7 @@ function pushGithub(branch, namespace, comment)
         return
     end
     
+
     local push_result = vim.fn.system({"git", "-f", "push", namespace, branch})
     if vim.v.shell_error ~= 0 then
         L.log("Error pushing: "..push_result, "error", {timeout=10000})
