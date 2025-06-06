@@ -59,7 +59,6 @@ key("n", "<M-,>", "<c-w>5<")
 key("n", "<M-.>", "<c-w>5>")
 key("n", "<M-u>", "<C-W>-")
 key("n", "<M-d>", "<C-W>+")
-key('n', '<C-a>', 'ggVG', opts)
 
 --Set num on rows
 key("", "<leader>123", function() vim.opt.number = true; vim.opt.relativenumber = false end, opts)

@@ -7,7 +7,6 @@
 > For updating the system
 
 
-
 | Comando                | Descrizione                      |
 | ---------------------- | --------------------------       |
 | Leader + pu            | PackerUpdate                     |
@@ -144,6 +143,13 @@ Nel caso si volesse avere javascript/typescript e python disponibili
     
     javascript/typescript -> npm install typescript-language-server
     python -> npm install pyright-langserver 
+
+per utilizzare il lettore CSV [repository](https://github.com/YS-L/csvlens)
+puo essere che vada in errore qualcosa, prova ad avviare nvim d'amministratore per vedere se si risolve
+```lua
+-- WINDOWS
+winget install --id YS-L.csvlens
+```
 
 per il debugger
     `pip install debugpy`

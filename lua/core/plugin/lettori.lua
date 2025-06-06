@@ -1,14 +1,23 @@
 local key = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+
+
+local OS = vim.loop.os_uname().sysname
+local path = vim.fn.stdpath("data")
+
+if OS == "Windows_NT" then path = path .. "\\csvlens.nvim\\"
+elseif OS == "Linux" then  path = path .. "/site/pack/packer/start/csvlens.nvim/" 
+end
 
 require("csvlens").setup({
-    direction = "float", -- "float" | "vertical" | "horizontal" |  "tab"
-    exec_path = "csvlens", -- You can specify the path to the executable if you wish. Otherwise, it will use the command in the PATH.
-    exec_install_path = vim.fn.stdpath("data") .. "site/pack/packer/start/csvlens.nvim/", -- directory to install the executable to if it's not found in the exec_path, ends with /
+    direction = "float",
+    exec_path = "csvlens",
+    exec_install_path = path
 })
 
-
---Csv
-key('', "<leader>csv", ":Csvlens<CR>", opts)
---MD
-key('', "<leader>mds", ":MarkdownPreview<CR>", opts)
-key('', "<leader>mdq", ":MarkdownPreviewStop<CR>", opts)
+-- Csv
+key('n', "<leader>csv", ":Csvlens<CR>", opts)
+-- Markdown
+key('n', "<leader>mds", ":MarkdownPreview<CR>", opts)
+key('n', "<leader>mdq", ":MarkdownPreviewStop<CR>", opts)

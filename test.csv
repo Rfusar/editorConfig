@@ -1,0 +1,11 @@
+Short, Boolean, String, List, Object, DynamicComplex, Document
+Index1, RowFound1,FieldName,RowTable,TempRow,Fields,TempDoc,
+Index2, RowFound2,FieldValue,,,,masterDocument,
+Index3, RowFound3,,,,,,
+Index4, RowFound4,,,,,,
+,Contains code,,,,,,
+,Contains _Imp,,,,,,
+,Contains _desc,,,,,
+,Contains _pos,,,,,,
+,Contains _quant,,,,,,
+,NewRow,,,,,,
