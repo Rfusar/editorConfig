@@ -9,7 +9,7 @@ local pickers = require('telescope.pickers')
 local finders = require("telescope.finders")
 local previewers = require("telescope.previewers")
 local conf = require("telescope.config").values
-local MP = require("core.plugin.telescope.changeProject.MenuProject")
+local MP = require("core.plugin.telescope.changeProject.menuProject")
 local SNI_M = require("core.plugin.telescope.snippets.menu")
 local DOC_M = require("core.plugin.telescope.docs.menu")
 
