@@ -18,6 +18,7 @@ local sidebar =t(C.sidebar)
 local dropdown_config = t(L.dropdown_config)
 local dropdown = t(L.dropdown)
 local inputs = t(L.input)
+local login = t(L.login)
 
 local postcss =t(I.postcss)
 local typescript =t(I.typescript)
@@ -49,15 +50,19 @@ function createProject()
     vim.fn.writefile(dropdown_config,"config.json", "a")
     vim.fn.writefile(dropdown,"init.tsx", "a")
     vim.cmd("cd ..")
-    vim.fn.writefile(inputs,"input.tsx", "a")
+
 
     vim.cmd("cd ../component")
     vim.fn.mkdir("sidebar")
     vim.fn.mkdir("navbar")
+    vim.fn.mkdir("login")
     
     vim.cmd("cd sidebar")
     vim.fn.writefile(sidebar_config,"config.json", "a")
     vim.fn.writefile(sidebar, "init.tsx", "a")
+
+    vim.cmd("cd ../login")
+    vim.fn.writefile(login,"init.tsx", "a")
     
     vim.cmd("cd ../navbar")
     vim.fn.writefile(navbar_config,"config.json", "a")

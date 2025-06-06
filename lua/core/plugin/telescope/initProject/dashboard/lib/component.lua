@@ -94,5 +94,47 @@ export default function Sidebar() {
     )
 }
 ]]
+M.login = [[
+import {Input} from "@/mylib/input"
+
+const DivDescription = ({})=>{
+    return (
+        <div className="row-span-1 bg-blue-500"></div>
+    )
+}
+
+const DivLogin = ({})=>{
+    return (
+        <div className="row-span-1 p-5">
+
+           <Input
+            label={{field:"Username", errorDescription:"Insert a valid Username"}}
+            options={{type:"text", placeholder:"Insert Username..."}}
+            mandatory={true}
+           />
+
+           <Input
+            label={{field:"Password", errorDescription:"Insert a valid Password"}}
+            options={{type:"password", placeholder:"Insert Password..."}} 
+            mandatory={true}
+           /> 
+        </div>
+    )
+}
+
+
+export default function Login(){
+    return (
+        <div className="flex justify-center items-center  h-screen w-screen bg-white">
+
+            <div className="grid grid-cols-2 w-[50%] h-[60%] shadow-lg">
+                <DivDescription/>
+                <DivLogin/>
+            </div>
+
+        </div>
+    )
+}
+]]
 
 return M

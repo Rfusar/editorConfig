@@ -30,12 +30,13 @@ function vm_ui()
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
         local path = vm[selection.value]
-        vim.cmd(":! "..path)
+        vim.cmd(":! start "..path)
       end)
       return true
     end,
   }):find()
 end
 
-
-vim.keymap.set("", "<F12>", ":lua vm_ui()<CR>", {})
+if (vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.keymap.set("", "<F12>", ":lua vm_ui()<CR>", {})
+end

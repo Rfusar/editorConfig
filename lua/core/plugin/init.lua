@@ -42,11 +42,24 @@ function pushGithub(branch, namespace, comment)
     L.log("Successfully pushed to "..namespace.."/"..branch, "info", {timeout=500})
 end
 
+function addZero(value)
+    local v = tostring(value)
+    if #v == 1 then return "0"..v 
+    else return v
+    end
+end
+
 vim.api.nvim_create_user_command(
   "PushGithub",
   function(opts)
-    local args = vim.split(opts.args, ", ")
-    pushGithub(args[1], args[2], args[3])
+    if opts.args == "nvim" then
+        local now = os.date("*t")
+        local comment = addZero(now["day"]).."-"..addZero(now["month"]).."-"..now["year"]
+        pushGithub("master", "origin", comment)
+    else
+        local args = vim.split(opts.args, ", ")
+        pushGithub(args[1], args[2], args[3])
+    end
   end,
   { nargs = 1 }
 )

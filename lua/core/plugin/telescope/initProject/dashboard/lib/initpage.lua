@@ -38,6 +38,7 @@ import "./globals.css";
 
 import Sidebar from "@/component/sidebar/init";
 import Navbar from "@/component/navbar/init";
+import Login from "@/component/login/init";
 
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
 
 // Definizione del font
 const geist = Geist({ subsets: ["latin"], weight: "400" });
-const online = true
+const online = false
 
 export default function RootLayout({
   children,
@@ -56,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-gray-600 max-h-screen max-w-screen overflow-hidden text-black ${geist.className}`}>
+      <body className={` bg-gray-600 max-h-screen max-w-screen overflow-hidden text-black ${geist.className}`}>
         {online ? (
             <div className="flex flex-row h-screen w-screen bg-white">
                 <Sidebar />
@@ -66,7 +67,7 @@ export default function RootLayout({
                 </div>
             </div>
         ) : (
-            <div></div>
+            <Login/>
         )}
       </body>
     </html>
