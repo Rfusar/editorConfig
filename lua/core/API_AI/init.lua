@@ -1,10 +1,13 @@
+--TODO legare la funzionalita a qualcosa di comodo
+
 local PROVIDERS = {
     ["deepseek"] = {
         ["url"] = "https://router.huggingface.co/novita/v3/openai/chat/completions",
         ["model"] = "deepseek/deepseek-v3-0324",
-        ["action"] = "chat",
+        ["type"] = "chat",
     },
 }
+local str_config = vim.fn.stdpath("config")
 
 local action = {}
 vim.ui.input({prompt="Chiedi a Agent AI [chat,]: "}, function(input)
@@ -12,15 +15,10 @@ vim.ui.input({prompt="Chiedi a Agent AI [chat,]: "}, function(input)
         action = PROVIDERS["deepseek"]
     end
 end)
-
 if action == {} then return end
 
 
-local body = ""
 vim.ui.input({prompt="Cosa ti serve? "}, function(input) 
-
-end)
-
     local body = [[
 {
     "messages": [
@@ -34,13 +32,33 @@ end)
 }
 ]]
     body = vim.fn.split(body, "\n")
-    vim.fn.writefile(body, "lua/core/API_AI/body.json", "")
+    vim.fn.writefile(body, str_config.."/lua/core/API_AI/body.json", "")
+
+end)
+
+local args = {
+  str_config.."/lua/core/API_AI/main.py", str_config, action["url"]
+}
+
+require("notify")([[
+
+    Invio la richiesta all'API, 
+
+    ci vorra qualche momento...
+
+]])
+vim.fn.jobstart({
+    "python", unpack(args)
+}, {
+  
+  on_exit = function()
+    vim.cmd(":vsplit " .. str_config .. "/lua/core/API_AI/result_python.txt")
+  end
+
+})
 
 
 
-
-vim.cmd("!python lua/core/API_AI/test.py")
-vim.cmd(":vsplit lua/core/API_AI/result_python.txt")
 
 
 --local n = require("notify")

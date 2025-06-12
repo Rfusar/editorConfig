@@ -1,5 +1,17 @@
 # HOW TO USE PLUG-IN AI (NOT AVAILABLE)
 
+#### Dependecies
+* Python 3.x
+
+| Lib        | cmd                  |
+|------------|----------------------|
+| requests   | pip install requests |
+
+* Account Hunggingface
+
+
+## Logic
+
 I decied to use the [Hunggingface API](https://huggingface.co/) for this tool
 because exists a free plan for the AI models
 
@@ -7,10 +19,8 @@ because exists a free plan for the AI models
 | -------|---------------------------------------------- |
 |        | Translator of Natual Languages (ITA-ENG-....) |
 
-
-## Logic
-
 for simplify the process I used [Python](https://www.python.org/) for call the API.
+
 
 **what does it to do?**
 

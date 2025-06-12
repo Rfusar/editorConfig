@@ -1,28 +1,26 @@
-#TODO Impostare la classe per una gestione migliore del codice, prendere come esempio :vsplit lua\core\API_AI\test.py
-
-
 import requests as r
 import os, json, datetime, time
 
 def File(path:str):
     with open(path) as f: return f.read()
 
-def Path(folders:list[str]) -> str: return os.path.join(folders)
+def Path(folders:list[str]) -> str: return os.path.join(*folders)
 
 
 class Manager():
-    def  __init__(self):
-        self.home = Path(["lua", "core", "API_AI"])
-        self.apikey = File(Path(["providers", "huggingface.txt"])).split("=")[1].strip()
+    def  __init__(self, nvim_home):
+
+        self.home = Path([nvim_home, "lua", "core", "API_AI"])
+        self.apikey = File(Path([nvim_home, "providers", "huggingface.txt"])).split("=")[1].strip()
         self.prompt = json.loads(File(Path([self.home, "body.json"])))
 
 
 
-    def SetCall(self, action="chat") -> bool:
+    def SetCall(self, action) -> bool:
         start_time = time.perf_counter()
 
         res = r.post(
-            url=CALL["url"],
+            url=action,
             headers={
                 "Authorization": "Bearer " + self.apikey,
                 "Content-Type": "application/json"
@@ -34,7 +32,6 @@ class Manager():
         with open(Path([self.home, "esito.json"]), "wb") as f:
             f.write(res.content)
 
-#TODO Gestiore Riposte
         inputs = json.loads(response)
         content = inputs["choices"][0]["message"]["content"]
         expense = {

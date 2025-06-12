@@ -6,7 +6,7 @@ local opts = { noremap = true, silent = true }
 local OS = vim.loop.os_uname().sysname
 local path = vim.fn.stdpath("data")
 
-if OS == "Windows_NT" then path = path .. "\\csvlens.nvim\\"
+if OS == "Windows_NT" then path = path .. "/csvlens.nvim/"
 elseif OS == "Linux" then  path = path .. "/site/pack/packer/start/csvlens.nvim/" 
 end
 
