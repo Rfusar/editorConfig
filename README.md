@@ -126,6 +126,10 @@ similar also for CSV files
 | Alt + d                | Docs func (if lsp is active) |
 
 
+### New Features
+
+- [ ] Plug-in for integrating the [AI API](lua\core\API_AI\README.md) 
+
 
 ### Extra
 
