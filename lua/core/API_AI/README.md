@@ -3,6 +3,8 @@
 I decied to use the [Hunggingface API](https://huggingface.co/) for this tool
 because exists a free plan for the AI models
 
+
+
 | MODELS | USED FOR                                      | 
 | -------|---------------------------------------------- |
 |        | Translator of Natual Languages (ITA-ENG-....) |
