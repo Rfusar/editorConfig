@@ -10,17 +10,17 @@ local function get_python_path()
     if is_windows then
         venv_path = vim.fn.getcwd() .. '/venv/Scripts/python.exe'
         if vim.fn.executable(venv_path) == 1 then
-            log.myLog("Sono su windows ed'è presente il venv", "info", {})
+            log.log("Sono su windows ed'è presente il venv", "info", {})
             return venv_path
         end
     else
         venv_path = vim.fn.getcwd() .. '/venv/bin/python'
         if vim.fn.executable(venv_path) == 1 then
-            log.myLog("Sono su Unix-like ed'è presente il venv", "info", {})
+            log.log("Sono su Unix-like ed'è presente il venv", "info", {})
             return venv_path
         end
     end
-    log.myLog("m'attacco al python di sistema per il debug", "info", {} )
+    log.log("m'attacco al python di sistema per il debug", "info", {} )
     return is_windows and 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe' or '/usr/bin/python'
 end
 

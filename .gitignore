@@ -1,3 +1,6 @@
 *.ps1
 tasks.txt
 notes.txt
+providers/*
+lua/core/API_AI/*.json
+lua/core/API_AI/*.txt

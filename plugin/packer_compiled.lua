@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["CopilotChat.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Utente\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\CopilotChat.nvim",
+    url = "https://github.com/opilotC-Nvim/CopilotChat.nvim"
+  },
   catppuccin = {
     loaded = true,
     path = "C:\\Users\\Utente\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\catppuccin",

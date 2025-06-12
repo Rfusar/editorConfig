@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
   use 'akinsho/toggleterm.nvim'
   use 'theKnightsOfRohan/csvlens.nvim'
 
+  --use 'opilotC-Nvim/CopilotChat.nvim'
+
   --Lettore File MD
   use({ "iamcco/markdown-preview.nvim", 
     run = "cd app && npm install", 

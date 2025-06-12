@@ -37,6 +37,6 @@ function vm_ui()
   }):find()
 end
 
-if (vim.loop.os_uname().sysname == "Windows_NT" then
+if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.keymap.set("", "<F12>", ":lua vm_ui()<CR>", {})
 end
