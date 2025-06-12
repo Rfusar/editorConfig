@@ -12,7 +12,6 @@ for /d %%D in (*) do (
     )
 )
 
-
 REM Elimina tutti i file tranne update.bat, keep.txt e config.ini
 for %%F in (*) do (
     if /I not "%%F"=="update.bat" if /I not "%%F"=="notes.txt" if /I not "%%F"=="tasks.txt" (
