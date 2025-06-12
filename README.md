@@ -128,7 +128,7 @@ similar also for CSV files
 
 ### New Features
 
-- [ ] Plug-in for integrating the [AI API](lua\core\API_AI\README.md) 
+- [ ] Plug-in for integrating the [AI API](lua/core/API_AI/README.md) 
 
 
 
