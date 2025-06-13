@@ -21,7 +21,8 @@ def readAllFile(folder):
 
 CACHE = readAllFile("cache")
 DB = readAllFile("DBs")
-CONFIG = load_config(readAllFile("providers"))
+
+CONFIG = load_config(readAllFile(os.path.join("..","..","..","..","providers","film")))
 
 cmd = argparse.ArgumentParser(
         prog="Search a film"
@@ -31,7 +32,6 @@ cmd.add_argument("-r", "--reload", action="store_true")
 cmd.add_argument("-sf", "--search-film", action="store_true")
 cmd.add_argument("-cc", "--clear-cache", action="store_true")
 cmd.add_argument("-g", "--genere", nargs="+")
-cmd.add_argument("-p", "--path-nvim", required=True)
 
 args = cmd.parse_args()
 
@@ -75,4 +75,5 @@ if args.genere:
                 results = ParserHTML(response.text)
                 with open("result_search.log", "a+", encoding="utf-8") as f:
                     for r in results: print(r); f.write(r+"\n")
+
 
