@@ -5,7 +5,7 @@ write-host "### INIZIO AGGIORNAMENO"
 Get-ChildItem -Path . -Recurse |
 Where-Object {
     $_.FullName -notlike "*\providers\*" -and
-    $_.Extension -notin ".ps1", ".txt"
+    $_.Extension -notin ".txt"
 } | Remove-Item -Recurse -Force
 
 
