@@ -8,10 +8,10 @@ def Path(folders:list[str]) -> str: return os.path.join(*folders)
 
 
 class Manager():
-    def  __init__(self, nvim_home):
+    def  __init__(self, nvim_home, path_home_tool):
 
-        self.home = Path([nvim_home, "lua", "core", "API_AI"])
-        self.apikey = File(Path([nvim_home, "providers", "huggingface.txt"])).split("=")[1].strip()
+        self.home = path_home_tool
+        self.apikey = File(Path([nvim_home, "providers", "AI", "huggingface.txt"])).split("=")[1].strip()
         self.prompt = json.loads(File(Path([self.home, "body.json"])))
 
 

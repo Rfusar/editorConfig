@@ -64,8 +64,11 @@ TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ric
 -- Create a NextJS Project with your custom components and other
 :CreateNextJS
 
--- create a fast tags xml
+-- Create a fast tags xml
 :TagsXml
+
+-- For talking with a API on https://huggingface.co/
+:Domanda
 ```
 
 ### 2. Layout

@@ -1,4 +1,4 @@
-# HOW TO USE PLUG-IN AI (NOT AVAILABLE)
+# HOW TO USE PLUG-IN AI
 
 #### Dependecies
 * Python 3.x

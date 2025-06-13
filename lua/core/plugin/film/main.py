@@ -31,6 +31,7 @@ cmd.add_argument("-r", "--reload", action="store_true")
 cmd.add_argument("-sf", "--search-film", action="store_true")
 cmd.add_argument("-cc", "--clear-cache", action="store_true")
 cmd.add_argument("-g", "--genere", nargs="+")
+cmd.add_argument("-p", "--path-nvim", required=True)
 
 args = cmd.parse_args()
 

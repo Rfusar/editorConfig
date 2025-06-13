@@ -7,3 +7,6 @@ require("core.plugin.startday")
 require("core.plugin.comments")
 require("core.plugin.github")
 require("core.plugin.virtualMachine")
+
+
+

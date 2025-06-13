@@ -6,10 +6,9 @@ try:
     action = sys.argv[2]
     #action = "https://router.huggingface.co/novita/v3/openai/chat/completions"
     #nvim_home = "C:\\Users\\Utente\\AppData\\Local\\nvim"
-    with open(os.path.join(nvim_home,"log.log"), "w") as f:
-        f.write(f"{action=} {nvim_home=}")
+    HOME_PATH = os.path.join(nvim_home, "lua", "core", "plugin", "API_AI")
     
-    mgr = Manager(nvim_home)
+    mgr = Manager(nvim_home, HOME_PATH)
     mgr.SetCall(action)
 
 except Exception as err:

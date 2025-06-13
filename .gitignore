@@ -1,7 +1,9 @@
 lua/core/plugin/film/providers/*
 lua/core/plugin/film/DBs/*
 lua/core/plugin/film/cache/*
-lua/core/plugin/film/utils/__pycache__/*
+lua/core/plugin/API_AI/tool/__pycache__/*
+
+*.ps1
 
 tasks.txt
 notes.txt
