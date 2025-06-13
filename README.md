@@ -1,5 +1,6 @@
 # My Editor Config (NVIM)
 
+
 ## Shortcut
 
 ### NVIM
