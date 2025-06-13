@@ -53,8 +53,14 @@ function M.start()
         ci vorra qualche momento...
     
     ]])
+
+    local OS = vim.loop.os_uname().sysname
+    local python_cmd = ""
+    if OS == "Windows_NT" then python_cmd = "python"
+    elseif OS == "Linux" then   python_cmd = "python3"
+    end
     vim.fn.jobstart({
-        "python", unpack(args)
+        python_cmd, unpack(args)
     }, {
       
       on_exit = function()

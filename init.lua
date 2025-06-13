@@ -11,7 +11,12 @@ local AI = require("core.plugin.API_AI")
 vim.api.nvim_create_user_command(
     "Films",
     function(opts) 
-        vim.fn.jobstart("start cmd", 
+        local terminal = ""
+        local OS = vim.loop.os_uname().sysname
+        if OS == "Windows_NT" then terminal = "cmd"
+        elseif OS == "Linux" then   terminal = "x-terminal-emulator"
+        end
+        vim.fn.jobstart(terminal, 
             { 
                 detach = true, 
                 cwd=vim.fn.stdpath("config").."/lua/core/plugin/film" 
