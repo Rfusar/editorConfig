@@ -4,4 +4,5 @@ for write a comment you must start row with "#" symbol.
 
 ### Mandatory key
 provider = <site>
+response_type = <xml|json>
  

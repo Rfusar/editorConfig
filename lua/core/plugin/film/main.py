@@ -4,7 +4,10 @@ import xml.etree.ElementTree as ET
 from urllib.parse import urljoin
 import requests, os, sys
 import glob
-from utils import clear_screen, ParserHTML, reload_sitemap, load_config, search_movies
+from utils import (
+    clear_screen, ParserHTML, reload_sitemap, load_config, search_movies,
+    HandleXML, HandleJSON
+)
 
 
 def readAllFile(folder):
@@ -12,7 +15,7 @@ def readAllFile(folder):
     os.makedirs(folder, exist_ok=True)
     for file in glob.glob(f"{folder}/*"):
         temp_obj = {
-            "name": os.path.basename(file).split(".")[0]
+            "name": os.path.basename(file)
         }  
         with open(file) as f:
             temp_obj["content"] = f.read()
@@ -40,26 +43,20 @@ clear_screen()
 
 if args.clear_cache:
     for file in glob.glob("cache/*"): os.remove(file)
+    for file in glob.glob("DBs/*"): os.remove(file)
     print("Pulizia Effettuata")
     print()
 
 if args.reload:
     for provider in CONFIG:
-        reload_sitemap(provider["name"], provider["config"])
+        reload_sitemap(provider["name"].split(".")[0], provider["config"])
 
 if args.search_film:
     title = input("Che film vuoi vedere? ").strip()
+    clear_screen()
     for file in DB:
-        try: root = ET.fromstring(file["content"])
-        except ET.ParseError as e:
-            print(f"Error parsing data.xml: {e}")
-            sys.exit(1)
-
-        namespace = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
-        
-        if not search_movies(root, namespace, title, file["name"]):
-            print("Film non disponibile")
-        print()
+        if file["name"].split(".")[1] == "xml": HandleXML(file, title)
+        elif file["name"].split(".")[1] == "json": HandleJSON(file, title)
     sys.exit(0)
 
 if args.genere:
