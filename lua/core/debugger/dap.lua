@@ -14,14 +14,14 @@ local function get_python_path()
             return venv_path
         end
     else
-        venv_path = vim.fn.getcwd() .. '/venv/bin/python'
+        venv_path = vim.fn.getcwd() .. '/venv/bin/python3'
         if vim.fn.executable(venv_path) == 1 then
             log.log("Sono su Unix-like ed'è presente il venv", "info", {})
             return venv_path
         end
     end
     log.log("m'attacco al python di sistema per il debug", "info", {} )
-    return is_windows and 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe' or '/usr/bin/python'
+    return is_windows and 'C:/Users/Utente/AppData/Local/Programs/Python/Python310/python.exe' or '/usr/bin/python3'
 end
 
 function M.InitDap()
