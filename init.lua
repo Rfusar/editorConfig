@@ -6,6 +6,7 @@ require("core.plugin")
 require("core.debugger")
 require("core.checkDipendenze")
 local AI = require("core.plugin.API_AI")
+local EMAIL = require("core.plugin.email")
 
 
 vim.api.nvim_create_user_command(
@@ -28,5 +29,11 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
     "Domanda",
     function(opts) AI.start() end,
+    {nargs = 0}
+)
+
+vim.api.nvim_create_user_command(
+    "Email",
+    function(opts) EMAIL.start() end,
     {nargs = 0}
 )
