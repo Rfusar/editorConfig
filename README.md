@@ -70,6 +70,12 @@ TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ric
 
 -- For talking with a API on https://huggingface.co/
 :Domanda
+
+-- Tool for searching a film
+:Films
+
+-- For talking with a API on https://huggingface.co/
+:Email param[--reload|--search]
 ```
 
 ### 2. Layout
@@ -132,8 +138,9 @@ similar also for CSV files
 
 ### New Features
 
-- [ ] Plug-in for integrating the [AI API](lua/core/API_AI/README.md) 
-
+- [x] Plug-in for integrating the [AI API](lua/core/API_AI/README.md) 
+- [x] Plug-in for searching a film [Custom API](lua/core/plugin/film/README.md) 
+- [ ] Plug-in for handling protocols SMTP/IMAP [tool email](lua/core/plugin/email/README.md) 
 
 
 ### Extra
