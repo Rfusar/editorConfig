@@ -47,19 +47,18 @@ try:
     if args.clear_cache: os.remove(FOLDER_CACHE)
     
     if args.reload:
+        records = []
         for provider in CONFIG:
-            with open(os.path.join(FOLDER_CACHE, "database.json"), "w", encoding="utf-8") as f: f.write("")
-        
             p = MyEmail(provider["config"]["server"], provider["config"]["user"], provider["config"]["pw"])
             esito, email = p.download(provider["config"]["provider"], save=FOLDER_CACHE)
             if esito:
                 for file in os.scandir(FOLDER_CACHE):
                     if file.is_dir():
                         for email in os.scandir(file.path):
-                            jemail = json.dumps(MyEmail.Parser(email))
-                            with open(os.path.join(FOLDER_CACHE, "database.json"), "a+", encoding="utf-8") as f:
-                                f.write(jemail)
-        sys.exit(0)
+                            records.append(MyEmail.Parser(email.path))
+
+        with open(os.path.join(FOLDER_CACHE, "database.json"), "w", encoding="utf-8") as f:
+            f.write(json.dumps(records))
                 
 except Exception as err:
     with open("error.log", "w") as f: f.write(str(err))

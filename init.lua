@@ -34,6 +34,11 @@ vim.api.nvim_create_user_command(
 
 vim.api.nvim_create_user_command(
     "Email",
-    function(opts) EMAIL.start() end,
-    {nargs = 0}
+    function(opts) 
+        if opts.args == "--reload" then EMAIL.reload()
+        elseif opts.args == "--search" then EMAIL.search()
+        end
+
+    end,
+    {nargs = 1}
 )

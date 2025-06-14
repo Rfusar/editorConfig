@@ -48,7 +48,7 @@ def parse_eml(eml_path):
                 'filename': part.get_filename(),
                 'content_type': part.get_content_type(),
                 'size': len(payload),
-                'content': base64.b64encode(payload).decode('utf-8'),  # Base64 per JSON
+                #'content': base64.b64encode(payload).decode('utf-8'),  # Base64 per JSON
                 'encoding': 'base64',  # Specifica l'encoding usato
                 'content_id': part.get('Content-ID', '').strip('<>')
             }
@@ -69,5 +69,5 @@ def parse_eml(eml_path):
         elif part.get_content_type() == 'text/html':
             result['body']['html'] = part.get_payload(decode=True).decode(part.get_content_charset() or 'utf-8')
 
-    return {"data": result}
+    return result
 
