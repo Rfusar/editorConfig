@@ -23,8 +23,11 @@ elseif OS == "Linux" then
         ["LIB - powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
         ["LIB - nvim"] = "/home/riccardo/.config/nvim",
         ["LIB - python"] = "C:/Users/Utente/Desktop/MyPackPython",
-        ["FUNC - Add New Path"] = "",
         ["SYS - Copy Current Directory"] = "",
+        ["FUNC - Add New Path"] = "",
+        ["FUNC - Add New Snippet"] = "",
+        ["FUNC - Add New Script"] = "",
+        ["FUNC - Copy Current Directory"] = "",
     }
 end
 

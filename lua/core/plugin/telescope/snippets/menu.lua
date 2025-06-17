@@ -10,14 +10,15 @@ local home = vim.fn.stdpath('config') .. "/lua/core/plugin/telescope/snippets/li
 
 -- Definisci i percorsi relativi rispetto al percorso attuale
 local snippets = {
-   ["Default Page - HTML"] = home .. "/html.html",
-   ["Server Init - Golang"] = home .. "/go_Server1.go",
-   ["Server Utils -  Golang"] = home .. "/go_Server2.go",
-   ["Connect Imap - Python"] = home .. "/py_Imap.py",
-   ["Base - CSS"] = home .. "/web/css/style.css",
-   ["Utils - JS"] = home .. "/web/js/utils.js",
-   ["DownloadFile - JS"] = home .. "/web/js/downloadFile.js",
-   ["KTA - Activity C#"] = home .. "/KTA-activity.cs",
+   ["HTML - Default Page"] = home .. "/html.html",
+   ["Golang - Server Init"] = home .. "/go_Server1.go",
+   ["Golang - Server Utils"] = home .. "/go_Server2.go",
+   ["Python - Connect Imap"] = home .. "/py_Imap.py",
+   ["Python - script with parameters"] = home .. "/tool_cli.py",
+   ["CSS - Base"] = home .. "/web/css/style.css",
+   ["JS - Utils"] = home .. "/web/js/utils.js",
+   ["JS - DownloadFile"] = home .. "/web/js/downloadFile.js",
+   ["Activity C# - KTA"] = home .. "/KTA-activity.cs",
 }
 
 local snippet_names = {}

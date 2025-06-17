@@ -44,7 +44,7 @@ function CleanRegistries()
     for _, reg in ipairs(registers) do
         vim.fn.setreg(reg, '')
     end
-    C.SetColors('Clean Registries', 'Success', '[OK]')
+    require("notify")('Pulizia Registri completata', 'info', {timeout=1000})
 end
 function CleanSearch() vim.fn.setreg("/", '') end
 key('n', '<leader>crs', ':lua CleanSearch()<CR>', opts)

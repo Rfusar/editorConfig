@@ -1,32 +1,5 @@
 # My Editor Config (NVIM)
 
-## Shortcut
-
-### NVIM
-
-> For updating the system
-
-
-| Comando                | Descrizione                      |
-| ---------------------- | --------------------------       |
-| Leader + pu            | PackerUpdate                     |
-| Leader + Leader + ps   | PackerSync                       |
-| Leader + so            | Execute current file.lua         |
-| Leader + fh            | nvim's menu help                 |
-
-    
-### 1. System
-
-| Comando                | Descrizione                      |
-| ---------------------- | --------------------------       |
-| Ctrl + s               | Save current file                |
-| Ctrl + b               | Open/close treeExplorer          |
-| Leader + sa            | Save all files                   |
-| Leader + c             | Copy on system clipboard         |
-| Leader + cr            | Clean registries                 |
-| Leader + crs           | Clear Search                     |
-| Leader + help          | Open this file                   |
-
 ##### 1. Custom Menus
 
 ```c 
@@ -44,95 +17,17 @@ SET_FUNC_REG_CONFIG:    "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telesc
 TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ricordi.md"
 ```
 
-| Comando                | Descrizione                            |
-| ---------------------- | -------------------------------------- |
-| Leader + sni           | Menu Template                          |
-| Leader + p             | Menu Shortcut                          |
-| ctrl + p               | Menu Projects                          |
-| Leader + doc           | Menu Docs                              |
-| F2                     | Fast links (multiselect with tab)      |
-| Leader + Leader + t    | Display tasks                          |
-| Leader + Leader + a    | Display notes                          |
-| Leader + qs            | [Set a funcs on registry](lua/core/plugin/telescope/scripts/README.md)          | 
-| Leader + qe            | excecute a funcs of registry           | 
-
-##### 2. Custom funcs
-```lua
--- The separetor is the comma plus a space like this ", "
-:PushGithub master, origin, your comment
-
--- Create a NextJS Project with your custom components and other
-:CreateNextJS
-
--- Create a fast tags xml
-:TagsXml
-
--- For talking with a API on https://huggingface.co/
-:Domanda
-```
-
-### 2. Layout
-
-#### 2.1  Current tab size management
-> In case you have multiple files open at the same time, it allows you to resize the tab
-
-| Comando    | Descrizione    |
-| ---------- | -------------- |
-| Alt + ,    | To the left    |
-| Alt + .    | To the right   |
-| Alt + u    | To the up      |
-| Alt + d    | To the down    |
-
-#### 2.2 Row numbering tab
-> To set the numbers to the edge of the tab
-
-| Comando    | Descrizione    |
-| ---------- | -------------- |
-| Leader + 123           | Row absolue                      |
-| Leader + 101           | Row relative                     |
-
-### 3. Previewer file
-
-> For now yes I can read md files, with the relative command, start a server where the service to interpret markdown files is exposed
-similar also for CSV files
-
-| Comando      | Descrizione                            |
-| ------------ | -------------------------------------- |
-| Leader + csv | Read files CVS                         |
-| Leader + mds | Enable server mode to read the file MD |
-| Leader + mdq | Disable server mode to read the file MD |
-
-### 3. Debugger (Normal Mode)
-
-| Comando               | Descrizione                 |
-| --------------------- | --------------------------- |
-| Leader + Leader + b   | Set debug python(system)    |
-| Leader + Leader + bv  | Set debug python(venv)      |
-| Leader + b            | Set BreakPoint              |
-| Leader + du           | View/close debugger-ui      |
-| Leader + db           | Show panel Brakpoints       |
-| Leader + dv           | Show panel Variables        |
-| Leader + ds           | Show panel Scopes           |
-| Leader + dt           | Terminate Debugger Session  |
-| F5                    | Start Debugger Session      |
-| F10                   | Next Move                   |
-| F11                   | Next Step                   |
-| F12                   | ???                         |
-
-### 4. Helpers
-
-| Comando                | Descrizione                  |
-| ---------------------- | -----------------------------|
-| Leader + Leader + lo   | LSP-Servers Off              |
-| Leader + Leader + lp   | LSP-Server Python            |
-| Leader + Leader + lj   | LSP-Server Js/Ts             |
-| Alt + d                | Docs func (if lsp is active) |
-
+### Features
+- [x]  [Some shortcut](lua/core/help.lua)
+- [x]  Lsp Server Python, [here](lua/core/lsp_server/pyright.lua)
+- [x]  Plug-in for integrating the [AI API](lua/core/API_AI/README.md) 
+- [x]  Plug-in for searching a film [Custom API](lua/core/plugin/film/README.md) 
+- [x]  Plug-in for Translate ITA to ENG, [Here](lua/core/plugin/translator/init.lua) 
 
 ### New Features
 
-- [ ] Plug-in for integrating the [AI API](lua/core/API_AI/README.md) 
-
+- [ ] Wrapper for debugger, [here](lua/core/debugger/init.lua)
+- [ ] Plug-in for handling protocols SMTP/IMAP [tool email](lua/core/plugin/email/README.md) 
 
 
 ### Extra

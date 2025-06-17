@@ -1,12 +1,11 @@
 require("core.plugin.telescope")
 require("core.plugin.tree")
 require("core.plugin.color")
-require("core.plugin.autocompletamento")
 require("core.plugin.lettori")
 require("core.plugin.startday")
 require("core.plugin.comments")
 require("core.plugin.github")
-require("core.plugin.virtualMachine")
+require("core.plugin.translator")
 
 
 

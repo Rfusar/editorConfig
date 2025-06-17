@@ -1,5 +1,5 @@
 import requests as r
-import os, json, datetime, time
+import os, json, time
 
 def File(path:str):
     with open(path) as f: return f.read()
@@ -27,12 +27,10 @@ class Manager():
             },
             json=self.prompt
         )
-        body = json.loads(res.text)
-        response = res.text
         with open(Path([self.home, "esito.json"]), "wb") as f:
             f.write(res.content)
 
-        inputs = json.loads(response)
+        inputs = json.loads(File(Path([self.home, "esito.json"])))
         content = inputs["choices"][0]["message"]["content"]
         expense = {
             "prompt": inputs["usage"]["prompt_tokens"],

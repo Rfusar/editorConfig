@@ -1,6 +1,5 @@
 local M = {}
 local dap = require('dap')
-local C = require('core.console.colors')
 local log = require("core.plugin.notify")
 
 local function get_python_path()

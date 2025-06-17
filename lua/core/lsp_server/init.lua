@@ -1,6 +1,5 @@
 -- Setup nvim-cmp
 local cmp = require('cmp')
-local C = require('core.console.colors')
 
 cmp.setup({
     snippet = {
@@ -34,10 +33,22 @@ function OffLspServers()
     for _, client in ipairs(clients) do
         client.stop()
     end
-    C.SetColors("OffLspServers Success: ", "Success", "[OK]")
+    require("notify")("Server LSP Spento", "info", {timeout=1000})
 end
 
 local opts = {noremap=true, silent=true}
-vim.keymap.set('n', '<leader><leader>lp', ':lua require("lspconfig").pyright.setup({})<CR>', opts)
+vim.diagnostic.config({
+  signs = true,
+  underline = true,
+})
+
+local view = false
+function viewError() 
+    view = not view
+    vim.diagnostic.config({virtual_text = view})
+end
+
+vim.keymap.set('n', '<leader><leader>lp', ':lua require("lspconfig").pyright.setup(require("core.lsp_server.pyright"))<CR>', opts)
 vim.keymap.set('n', '<leader><leader>lj', ':lua require("lspconfig").ts_ls.setup({})<CR>', opts)
 vim.keymap.set('n', '<leader><leader>lo', ':lua OffLspServers()<CR>', opts)
+vim.keymap.set('n', '<leader>view', ':lua viewError()<CR>', opts)
