@@ -14,15 +14,13 @@ if OS == "Windows_NT" then
         ["FUNC - Add New Path"] = "",
         ["FUNC - Add New Snippet"] = "",
         ["FUNC - Add New Script"] = "",
-        ["FUNC - Copy Current Directory"] = "",
     }
 
 
 elseif OS == "Linux" then
     M.projects = {
-        ["LIB - powershell"] = "C:/Users/Utente/Documents/WindowsPowerShell/Modules",
         ["LIB - nvim"] = "/home/riccardo/.config/nvim",
-        ["LIB - python"] = "C:/Users/Utente/Desktop/MyPackPython",
+        ["My Libraries"] = "/home/riccardo/Scrivania/MyLib",
         ["SYS - Copy Current Directory"] = "",
         ["FUNC - Add New Path"] = "",
         ["FUNC - Add New Snippet"] = "",

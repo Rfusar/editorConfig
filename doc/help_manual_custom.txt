@@ -7,9 +7,14 @@ local OS = vim.loop.os_uname().sysname
 ```
 
 
+==========================================================================================
+*GitDocs.txt*    Git
+
+    git log -t -2                         return last two commits
+
 
 ==========================================================================================
-*tagsxml.txt*    Plugin per il comando :TagsXml
+*tagsxml.txt*    Plugin per il comando :TagsXml (It does not works)
 
 NAME
     CreateNextJS - Genera un xml leggendo un file KEYS.TXT
