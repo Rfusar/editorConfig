@@ -1,23 +1,7 @@
 # My Editor Config (NVIM)
 
-##### 1. Custom Menus
-
-```c 
-SNIPPETS_CONST:         "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/snippets/libs"
-SNIPPETS_CONFIG:        "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/snippets/menu.lua"
-
-CUSTOM_MENU_CONFIG:     "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/init.lua"
-
-DOCS_CONST:             "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/docs/const.lua"
-DOCS_CONFIG:            "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/docs/menu.lua"
-
-SET_FUNC_REG_CONST:     "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/scripts/lib"
-SET_FUNC_REG_CONFIG:    "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/scripts/menu.lua"
-
-TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ricordi.md"
-```
-
 ### Features
+
 - [x]  [Some shortcut](lua/core/help.lua)
 - [x]  Lsp Server Python, [here](lua/core/lsp_server/pyright.lua)
 - [x]  Plug-in for integrating the [AI API](lua/core/API_AI/README.md) 
@@ -30,9 +14,25 @@ TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ric
 - [ ] Wrapper for debugger, [here](lua/core/debugger/init.lua)
 - [ ] Plug-in for handling protocols SMTP/IMAP [tool email](lua/core/plugin/email/README.md) 
 
+<details>
+    <summary>Consts of a correct configuration (CUSTOM MENU)</summary>
 
-### Extra
+    SNIPPETS_CONST:         "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/snippets/libs"
+    SNIPPETS_CONFIG:        "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/snippets/menu.lua"
+    
+    CUSTOM_MENU_CONFIG:     "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/init.lua"
+    
+    DOCS_CONST:             "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/docs/const.lua"
+    DOCS_CONFIG:            "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/docs/menu.lua"
+    
+    SET_FUNC_REG_CONST:     "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/scripts/lib"
+    SET_FUNC_REG_CONFIG:    "C:/Users/User/AppData/Local/nvim/lua/core/plugin/telescope/scripts/menu.lua"
+    
+    TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ricordi.md"
 
+</details>
+
+## Extra
 
 per scaricare le dipendenze necessarie fare `:lua setup_environment()`
 
@@ -48,18 +48,18 @@ Nel caso si volesse avere javascript/typescript e python disponibili
     javascript/typescript -> npm install typescript-language-server
     python -> npm install pyright-langserver 
 
-per utilizzare il lettore CSV [repository](https://github.com/YS-L/csvlens)
+per utilizzare il lettore CSV [repository](https://github.com/YS-L/csvlens) </summary>
 puo essere che vada in errore qualcosa, prova ad avviare nvim d'amministratore per vedere se si risolve
 ```lua
 -- WINDOWS
 winget install --id YS-L.csvlens
-```
-
+```    
 per il debugger
     `pip install debugpy`
 
 per utilizzare live_grep con telescope
+
 ```lua
 -- WINDOWS
 choco install ripgrep
-```
+```    
