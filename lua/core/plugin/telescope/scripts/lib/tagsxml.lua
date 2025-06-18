@@ -1,40 +1,26 @@
-function to_readable_keys(str)
-  return str
-    :gsub("\27", "<Esc>")     -- ESC (^[ o \x1b)
-    :gsub("\13", "<CR>")      -- ^M
-    :gsub("\9", "<Tab>")      -- ^I
-    :gsub("([\128-\255])", function(c)
-      return string.format("<%02X>", c:byte())
-    end)
-end
--- print(to_readable_keys(vim.fn.getreg("q")))
-function ErrorHandler(err) 
-    require("notify").notify([[
-]]..err..[[
-
-    ]], "error", {timeout=5000})
-end
 function at(args, _table) table.insert(_table, args) end
 
-local row = {
+local Handler = {
+    ["memory"] = {},
+    ["xml"] = {},
+    ["prev"] = {
         ["tab"] = 0,
         ["tag"] = "",
         ["value"] = "",
-    }
-local Handler = {
-    ["memory"] = {},
-    ["xml"] = row,
-    ["prev"] = row,
-    ["current"] = row,
+    },
+    ["current"] = {
+        ["tab"] = 0,
+        ["tag"] = "",
+        ["value"] = "",
+    },
 }
 
-function Handler:addToMemory(args) 
-    table.insert(Handler["memory"], args) 
-end
+function Handler:addToMemory(args) table.insert(Handler["memory"], args) end
 
 function checkTags(
-    f_lines_obj    -- {int, int}
+        f_lines_obj    -- {int, int}
     )  
+
     local temp_row = ""
     local VALUE_IS_NULL = Handler["current"]["value"] == nil
     local CREATE_CHILD  = Handler["current"]["tab"] > Handler["prev"]["tab"]
@@ -42,14 +28,16 @@ function checkTags(
     local ENDFILE_TAGS_NOT_CLOSED = f_lines_obj[1] == f_lines_obj[2]
     local DIFF_TABS = Handler["prev"]["tab"]-Handler["current"]["tab"]
     
+    Handler["current"]["value"] = Handler["current"]["value"] or ""
     print("VALUE_IS_NULL:           "..tostring(VALUE_IS_NULL))
     print("CREATE_CHILD:            "..tostring(CREATE_CHILD))
     print("CLOSE_TAG:               "..tostring(CLOSE_TAG))
     print("ENDFILE_TAGS_NOT_CLOSED: "..tostring(ENDFILE_TAGS_NOT_CLOSED))
     print("DIFF_TABS:               "..DIFF_TABS)
     print("PREV_TAG:                "..Handler["prev"]["tag"])
-    print("DETTAGLI RIGA:           "..Handler["current"]["tag"]..", "..Handler["current"]["value"]))
+    print("DETTAGLI RIGA:           "..Handler["current"]["tag"]..", "..Handler["current"]["value"])
     print("MANAGER:                 ["..vim.fn.join(Handler["memory"], ", ").."]")
+    print("XML:                 "..vim.fn.join(Handler["xml"], "\n"))
     vim.fn.input("\n")
     
 
@@ -58,22 +46,22 @@ function checkTags(
     else temp_row = "<"..Handler["current"]["tag"]..">"..Handler["current"]["value"].."</"..Handler["current"]["tag"]..">"
     end
     if ENDFILE_TAGS_NOT_CLOSED then 
-        PREV:addToMemory(Handler["current"]["tag"]) 
-        for i, key in ipairs(PREV["memory"]) do 
-            at(string.rep("    ",Handler["current"]["tab"]-i).."</"..key..">", Handler["xml"])
+        Handler:addToMemory(Handler["current"]["tag"]) 
+        for i, key in ipairs(Handler["memory"]) do 
+            at(string.rep("    ",Handler["prev"]["tab"]-i).."</"..key..">", Handler["xml"])
             table.remove(Handler["memory"], i) 
         end
     end
 
-    temp_row = string.rep("    ", Handler["current"]["tab"] .. temp_row
+    temp_row = string.rep("    ", Handler["current"]["tab"]) .. temp_row
 
-    if CREATE_CHILD then 
-        at(Handler["prev"]["tab"], Handler["memory"]) 
+    if CREATE_CHILD then
+        at(Handler["prev"]["tag"], Handler["memory"]) 
     end
     if CLOSE_TAG then
         for i = 1, math.abs(DIFF_TABS) do
             local n = #Handler["memory"]
-            at(string.rep("    ", Handler["prev"]["tab"] - i).."</"..Handler["memory"][n]..">", Handler["xml"])
+            at(string.rep("    ", Handler["current"]["tab"] - i).."</"..Handler["memory"][n]..">", Handler["xml"])
             table.remove(Handler["memory"])
         end
     end
@@ -85,6 +73,7 @@ function checkTags(
 end
 
 function TagsXml()
+  Handler["xml"] = {"\n"}
   local n_row = 0
 
   local f = io.open("KEYS.TXT", "r")
@@ -112,8 +101,8 @@ function TagsXml()
     end
   end
   f:close()
-  for _, k in ipairs(results) do print(k.."\n") end
-  local result = vim.fn.join(results, "\n")
+  for _, k in ipairs(Handler["xml"]) do print(k.."\n") end
+  local result = vim.fn.join(Handler["xml"], "\n")
   vim.fn.setreg("+", result)
 end
 

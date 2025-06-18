@@ -26,6 +26,7 @@ TASKS_EDIT:             "C:/Users/Utente/AppData/Local/nvim/lua/core/ricordi/ric
 
 ### New Features
 
+- [ ] SQL Viewer - maybe also with [integration with a potential SQLDB](https://github.com/kndndrj/nvim-dbee)
 - [ ] Wrapper for debugger, [here](lua/core/debugger/init.lua)
 - [ ] Plug-in for handling protocols SMTP/IMAP [tool email](lua/core/plugin/email/README.md) 
 

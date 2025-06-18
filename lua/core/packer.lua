@@ -14,10 +14,27 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Lettore File CSV
-  use 'akinsho/toggleterm.nvim'
+  --use 'akinsho/toggleterm.nvim'
   use 'theKnightsOfRohan/csvlens.nvim'
 
   --use 'opilotC-Nvim/CopilotChat.nvim'
+
+  --use {
+  --  "kndndrj/nvim-dbee",
+  --  requires = {
+  --    "MunifTanjim/nui.nvim",
+  --  },
+  --  run = function()
+  --    -- Install tries to automatically detect the install method.
+  --    -- if it fails, try calling it with one of these parameters:
+  --    --    "curl", "wget", "bitsadmin", "go"
+  --    require("dbee").install()
+  --  end,
+  --  config = function()
+  --    require("dbee").setup(--[[optional config]])
+  --  end
+  --}
+  
 
   --Lettore File MD
   use({ "iamcco/markdown-preview.nvim", 

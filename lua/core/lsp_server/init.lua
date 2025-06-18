@@ -24,6 +24,7 @@ cmp.setup({
 local lsp_servers = {
     pyright = {},
     tsserver = {},
+    lua_ls = {},
     -- clangd = {},
     -- gopls = {},
 }
@@ -50,5 +51,6 @@ end
 
 vim.keymap.set('n', '<leader><leader>lp', ':lua require("lspconfig").pyright.setup(require("core.lsp_server.pyright"))<CR>', opts)
 vim.keymap.set('n', '<leader><leader>lj', ':lua require("lspconfig").ts_ls.setup({})<CR>', opts)
+vim.keymap.set('n', '<leader><leader>ll', ':lua require("lspconfig").lua_ls.setup(require("core.lsp_server.lua_ls"))<CR>', opts)
 vim.keymap.set('n', '<leader><leader>lo', ':lua OffLspServers()<CR>', opts)
 vim.keymap.set('n', '<leader>view', ':lua viewError()<CR>', opts)

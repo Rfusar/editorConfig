@@ -1,0 +1,64 @@
+==========================================================================================
+*help_manual_custom.txt* 
+
+for return a name os OS use
+```
+local OS = vim.loop.os_uname().sysname
+```
+
+
+
+==========================================================================================
+*tagsxml.txt*    Plugin per il comando :TagsXml
+
+NAME
+    CreateNextJS - Genera un xml leggendo un file KEYS.TXT
+
+USAGE
+                    KEYS.TXT 
+    
+    Tag1
+        tag V
+        tag V
+    
+    Tag1
+        tag V
+            tag V
+    
+                    RESULTS nel registro @+
+    <Tag1>
+        <tag>V</tag>
+        <tag>V</tag>
+    </Tag1>
+    <Tag1>
+        <tag>V</tag>
+        <tag>V</tag>
+    </Tag1>
+
+
+==========================================================================================
+*createnextjs.txt*    Plugin per il comando :CreateNextJS
+
+NAME
+    CreateNextJS - Crea progetto NextJS
+
+USAGE
+    :CreateNextJS
+
+DESCRIPTION
+    Inizializza un progetto NextJS con dei componenti custom
+
+
+
+
+
+
+
+
+
+
+SEE ALSO
+    :h user-commands
+
+
+
