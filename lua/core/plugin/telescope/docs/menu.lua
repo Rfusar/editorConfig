@@ -46,6 +46,7 @@ function M.custom_picker()
         actions.select_default:replace(function()
             local selection = action_state.get_selected_entry()
             actions.close(prompt_bufnr)
+            Menu_2 = {}
     
             local category = selection[1]
             local sub_links = lib.DOC_LINKS[category]
@@ -58,7 +59,6 @@ function M.custom_picker()
                 open_url(sub_links)
                 return true
             end
-    
     
             AddTable(sub_links, Menu_2)
             Menu(category, Menu_2, function(sub_bufnr, _)

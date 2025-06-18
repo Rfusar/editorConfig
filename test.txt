@@ -1,3 +1,0 @@
-Scrittura log in cartella dedicata
-
-Evita di scrivere errori nel file corrente (nvim_tool_AI_error.log) che potrebbe finire ovunque venga eseguito lo script. Usa la stessa directory dei log.
