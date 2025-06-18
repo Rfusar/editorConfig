@@ -1,5 +1,8 @@
 # My Editor Config (NVIM)
 
+![MyBadge](https://img.shields.io/badge/Version-0.6.30-purple)
+![MyBadge](https://img.shields.io/badge/NewFeatures-3-blue)
+
 ### Features
 
 - [x]  [Some shortcut](lua/core/help.lua)
@@ -32,32 +35,32 @@
 
 </details>
 
-## Extra
+## Extra Notes
 
-per scaricare le dipendenze necessarie fare `:lua setup_environment()`
+to download the necessary dependencies do `:lua setup_environment()`
 
-font che permettono di visualiizare web-icon [font Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf)
+fonts that allow you to view web icons [font Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Medium/FiraMonoNerdFontMono-Medium.otf)
 
-lettura della documentzione di vim/nvim [VIM docs](https://youtu.be/rT-fbLFOCy0?si=R5yYmHxDoNBdzHOa)
+reading the vim/nvim document [VIM docs](https://youtu.be/rT-fbLFOCy0?si=R5yYmHxDoNBdzHOa)
     
     refresh cache -> sudo fc-cahce -f -v
 
-per avere degli info quando si scrive codice, bisogna avere `node` e i seguinti pachetti disponibili globalmente.
-Nel caso si volesse avere javascript/typescript e python disponibili
+to get information when writing code, you need to have `node` and the following packages available globally.
+In case you want to have javascript/typescript and python available
     
     javascript/typescript -> npm install typescript-language-server
-    python -> npm install pyright-langserver 
+    python -> npm install copyright-langserver 
 
-per utilizzare il lettore CSV [repository](https://github.com/YS-L/csvlens) </summary>
-puo essere che vada in errore qualcosa, prova ad avviare nvim d'amministratore per vedere se si risolve
+to use the CSV reader [repository](https://github.com/YS-L/csvlens) </summary>
+something may be wrong, try starting administrator nvim to see if it fixes
 ```lua
 -- WINDOWS
 winget install --id YS-L.csvlens
 ```    
-per il debugger
+for debugger
     `pip install debugpy`
 
-per utilizzare live_grep con telescope
+to use live_grep with telescopes
 
 ```lua
 -- WINDOWS
