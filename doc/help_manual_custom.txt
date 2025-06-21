@@ -1,11 +1,21 @@
 ==========================================================================================
-*help_manual_custom.txt* 
+*help_manual_custom.txt*
 
 for return a name os OS use
 ```
 local OS = vim.loop.os_uname().sysname
 ```
 
+==========================================================================================
+*folders*    Git
+
+    zf                         create A folder's file
+
+    zc                         close a folder's file
+    zM                         close a ALL folder's file
+
+    zo                         open a folder's file
+    zR                         open a ALL folder's file
 
 ==========================================================================================
 *GitDocs.txt*    Git
@@ -20,16 +30,16 @@ NAME
     CreateNextJS - Genera un xml leggendo un file KEYS.TXT
 
 USAGE
-                    KEYS.TXT 
-    
+                    KEYS.TXT
+
     Tag1
         tag V
         tag V
-    
+
     Tag1
         tag V
             tag V
-    
+
                     RESULTS nel registro @+
     <Tag1>
         <tag>V</tag>

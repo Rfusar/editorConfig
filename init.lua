@@ -5,12 +5,12 @@ require("core.ricordi")
 require("core.plugin")
 require("core.debugger")
 require("core.lsp_server")
+require("core.strict")
 require("core.dependecies")
 
 
 
 --[DOC] Tools with Python
-
 local AI = require("core.plugin.API_AI")
 local EMAIL = require("core.plugin.email")
 

@@ -1,6 +1,6 @@
-function checkfile(path) 
+function checkfile(path)
     local f = io.open(path, "r")
-    
+
     if not f then io.open(path, "w")
     end
 end
@@ -21,13 +21,13 @@ end
 local filepath_ricordi = vim.fn.stdpath('config') .. "/tasks.txt"
 local filepath_appunti = vim.fn.stdpath('config') .. "/notes.txt"
 
-function Ricordi() 
+function Ricordi()
     checkfile(filepath_ricordi)
-    open_file_in_split(filepath_ricordi) 
+    open_file_in_split(filepath_ricordi)
 end
-function Appunti() 
+function Appunti()
     checkfile(filepath_appunti)
-    open_file_in_split(filepath_appunti) 
+    open_file_in_split(filepath_appunti)
 end
 
 local opts = { noremap = true, silent = true }

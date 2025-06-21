@@ -1,4 +1,4 @@
---TODO legare la funzionalita a qualcosa 
+--TODO legare la funzionalita a qualcosa
 
 local M = {}
 
@@ -13,18 +13,18 @@ function M.start()
         },
     }
     local str_config = vim.fn.stdpath("config")
-    
-    
+
+
     local action = {}
     vim.ui.input({prompt="Chiedi a Agent AI [chat,]: "}, function(input)
-        if input == "chat" then 
+        if input == "chat" then
             action = PROVIDERS["deepseek"]
         end
     end)
     if action == {} then return end
-    
-    
-    vim.ui.input({prompt="Cosa ti serve? "}, function(input) 
+
+
+    vim.ui.input({prompt="Cosa ti serve? "}, function(input)
         local body = [[
     {
         "messages": [
@@ -39,19 +39,19 @@ function M.start()
     ]]
         body = vim.fn.split(body, "\n")
         vim.fn.writefile(body, str_config..HOME_PATH.."/body.json", "")
-    
+
     end)
-    
+
     local args = {
       str_config..HOME_PATH.."/main.py", str_config, action["url"]
     }
-    
+
     require("notify")([[
-    
-        Invio la richiesta all'API, 
-    
+
+        Invio la richiesta all'API,
+
         ci vorra qualche momento...
-    
+
     ]])
 
     local OS = vim.loop.os_uname().sysname
@@ -62,11 +62,11 @@ function M.start()
     vim.fn.jobstart({
         python_cmd, unpack(args)
     }, {
-      
+
       on_exit = function()
         vim.cmd(":vsplit "..str_config..HOME_PATH.."/result_python.txt")
       end
-    
+
     })
 end
 
@@ -82,11 +82,11 @@ return M
 --local content = {}
 --
 --
---for l in file:lines() do 
+--for l in file:lines() do
 --    if l == "EXPENSE" then IS_EXPENSE = true  end
---    if l == "CONTENT" then 
+--    if l == "CONTENT" then
 --        IS_EXPENSE=false
---        IS_CONTENT = true 
+--        IS_CONTENT = true
 --    end
 --
 --    if IS_EXPENSE and l~="EXPENSE" then table.insert(expense, l) end
@@ -96,7 +96,7 @@ return M
 --
 --function createContent(title, _table)
 --    local temp_str = ""
---    for _,l in ipairs(_table) do 
+--    for _,l in ipairs(_table) do
 --        temp_str=temp_str..l.."\n"
 --    end
 --    return temp_str

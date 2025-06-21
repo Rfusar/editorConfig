@@ -43,7 +43,7 @@ class Manager():
         }
         end_time = time.perf_counter()
         elapsed_time = end_time - start_time
-        
+
         CONTENT = "\n### TIME ###\n"
         CONTENT += f"esecuzione -> {elapsed_time:.2f} s\n"
         CONTENT += "\n### EXPENSE ###\n"
