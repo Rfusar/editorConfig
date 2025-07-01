@@ -19,6 +19,7 @@ M.DOC_LINKS = {
     },
     ["OTHER LANG DOCS"] = {
         ["C#"] = "https://learn.microsoft.com/en-us/dotnet/csharp/",
+        ["System Namespace .NET"] = "https://learn.microsoft.com/en-us/dotnet/api/system?view=net-9.0",
         ["Golang"] = "https://pkg.go.dev/std",
     },
     ["WEB PAGE"] = {

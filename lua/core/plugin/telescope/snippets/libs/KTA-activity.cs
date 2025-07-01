@@ -1,58 +1,151 @@
+//. Classi aggiuntive
+
+//. Logger
+//TODO da migliorare Properties
+//.     - void Log(string msg) -> scrivi delle stringhe in un file
+//.     - void Properties(string idetifier, string msg) -> scrivi delle stringhe in un file
+
+
+//. Parser
+//.    - JSON___Str_Str(Dictonary(<string>, <string>))
+//.    - JSON___arrayStr(List<string>)
 
 using System;
 using System.Globalization;
 using System.Data;
-using System.IO;
 using Agility.Server.Scripting.ScriptAssembly;
-//using Agility.Sdk.Model.Capture;
-using TotalAgility.Sdk;
+using System.IO;
+using System.Collections.Generic;
 
 namespace MyValidator
 {
+
+    //*In caso servissero degli oggetti
+    public class Check
+    {
+    }
+
+    //*In caso servisse gestire un errore in un Validation Handler
+    public class ReturnValues
+    {
+        public string Fieldname;
+        public string ErrorDescription;
+    }
+
     public class Validator
     {
-        private string session;
-        private string IdDocument;
-        private CaptureDocumentService service;
+        private static Check c;
+        private static Logger l; //Non serve in produzione
+        private static ReturnValues rv;
 
-        public Validator() { }
-
-        //METHOD 1
-        private decimal SetDecimal(object value)
+        [StartMethod]
+        public void Main(ScriptParameters sp)
         {
-            if(value == null){return -1;}
-            decimal result;
-            if (decimal.TryParse(value.ToString(), NumberStyles.Any, new CultureInfo("it-IT"), out result))
-                return result;
-            return -1;
+            c = new Check();
+            l = new Logger("E:\\Temp\\EXAMPLE_FILE_LOG_SNIPPETS.txt");  //Non serve in produzione
         }
 
-        //METHOD 2
-        private string SetString(decimal value)
+
+
+        //*Validation
+        public static ReturnValues Validation(string json)
         {
-            return value.ToString("N2", new CultureInfo("it-IT"));
         }
 
-        //METHOD 3
-        private void LogMessage(string message)
+    }
+
+
+    //*Converter
+    public class Parser
+    {
+        public string[] JSON___Str_Str(string json) 
+        //  {
+        //    "...": "...",
+        //    ...
+        //  } 
         {
-            string logFilePath = "E:\\Customers\\Fasdac\\LOG_MODULI.txt";
-            using (StreamWriter sw = new StreamWriter(logFilePath, true))
+            var lista = new List<string>();
+            bool inQuotes = false;
+            var current = "";
+            json = json.Trim().TrimStart('{').TrimEnd('}');
+            for (int i = 0; i < json.Length; i++)
+            {
+                char c = json[i];
+                if (c == '\"') {inQuotes = !inQuotes;}
+                if (c == ',' && !inQuotes)
+                {
+                    lista.Add(current.ToString().Trim());
+                    current = "";
+                }
+                else{ current = current + c;}
+            }
+            if (current.Length > 0){lista.Add(current.ToString().Trim());}
+            var result = new List<string>();
+            foreach (var pair in lista)
+            {
+                var parts = pair.Split(new[] { ':' }, 2);
+                if (parts.Length == 2)
+                {
+                    string key = parts[0].Trim().Trim('\"');
+                    string value = parts[1].Trim().Trim('\"');
+                    result.Add(key+" "+value);
+                }
+            }
+            return result.ToArray();
+        }
+
+        public static string[] JSON___arrayStr(dynamic json)
+        //  [
+        //      [..., ...],
+        //      ...
+        //  ]
+        {
+            List<string> rows = new List<string>();;
+            string result = "";
+            foreach(var row in json)
+            {
+                foreach(var r in row)
+                {
+                    result += r+",";
+                }
+                string[] fields = result.Split(',');
+                string fieldname = fields[fields.Length-3];
+                string fieldvalue = fields[7];
+                rows.Add(result);
+                result = "";
+            }
+            return rows.ToArray()
+        }
+    }
+
+    //*Debug
+    //non serve in produzione
+    public class Logger
+    {
+        private static string path;
+        
+        public Logger (string path_filelog)
+        {
+            path = path_filelog;
+        }
+
+        public void Log(string message)
+        {
+            using (StreamWriter sw = new StreamWriter(path, true))
             {
                 sw.WriteLine(message);
             }
         }
 
-        //METHOD 3.1
-        private void LogObjectProperties(string objectName, object obj)
+        public void Properties(string objectName, object obj)
         {
             if (obj == null)
             {
-                LogMessage(objectName+" è NULL");
+                Log(objectName+" è NULL");
                 return;
             }
         
-            LogMessage("\n\n=== PROPRIETÀ DI "+objectName.ToUpper()+" ===");
+            Log("\n\n=== PROPRIETÀ DI "+objectName.ToUpper()+" ===");
             
             var properties = obj.GetType().GetProperties();
             foreach (var prop in properties)
@@ -61,39 +154,15 @@ namespace MyValidator
                 {
                     if(Convert.ToBoolean(prop.GetValue(obj)))
                     {
-                        LogMessage(prop.Name+": "+prop.GetValue(obj));
+                        Log(prop.Name+": "+prop.GetValue(obj));
                     }
-                    else{LogMessage(prop.Name+": null");}
+                    else{Log(prop.Name+": null");}
                 }
                 catch (Exception ex)
                 {
-                    LogMessage(prop.Name+": [ERRORE] "+ex.Message);
+                    Log(prop.Name+": [ERRORE] "+ex.Message);
                 }
             }
-        }
-
-        public void SetValue(string campo, string value, int row, int col)
-        {
-            service.UpdateDocumentFieldValue(
-                session,
-                null,
-                IdMasterDocument,
-                new RuntimeField
-                {
-                    Name = campo,
-                    Id = campo,
-                    TableRow = row,
-                    TableColumn = col,
-                    Value = value
-                }
-            );
-        }
-
-        [StartMethod]
-        public void Main(ScriptParameters sp)
-        {
-            session = (string)sp.InputVariables["SPP_SYSTEM_SESSION_ID"];
-            IdDocument = (string)sp.InputVariables["DOCID"];
         }
     }
 }

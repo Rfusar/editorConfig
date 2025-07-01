@@ -65,6 +65,24 @@ DESCRIPTION
 
 
 
+==========================================================================================
+*custom-powershell.txt*    helper powershell
+
+an example of a powershell parameter
+```
+[Parameter(
+    Mandatory = $false,
+    Position = 0,
+    HelpMessage = "Specifica l'azione da eseguire.",
+    ValueFromPipeline = $false,
+    ValueFromPipelineByPropertyName = $true
+)]
+[ValidateSet("Start", "Stop", "Restart", "Status")]
+[Alias("Act")]
+[string]$Action
+```
+
+
 
 
 
