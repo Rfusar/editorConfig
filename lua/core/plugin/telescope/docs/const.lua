@@ -2,8 +2,9 @@ local M = {}
 
 M.DOC_LINKS = {
     ["KTA"] = {
-        ["GENERAL"] = "https://docshield.tungstenautomation.com/KTA/en_US/750-4kcae04o43/help/TA/TotalAgility_help/c_welcome.html",
+        ["GENERAL 7.5"] = "https://docshield.tungstenautomation.com/KTA/en_US/750-4kcae04o43/help/TA/TotalAgility_help/c_welcome.html",
         ["CaptureDocumentService"] = "https://docshield.tungstenautomation.com/KTA/en_US/8.1.0-rmx0b1ux3q/help/SDK_Documentation/latest/class_agility_1_1_sdk_1_1_services_1_1_capture_document_service.html#a135da9da7d3cae63b4e6df2da579eeba",
+        ["General 8.1"] = "https://docshield.tungstenautomation.com/KTA/en_US/8.1.0-rmx0b1ux3q/help/TotalAgilityApps/TotalAgility_apps/c_TAappintro.html",
     },
     ["GIT"] = {
         ["GENERAL"] = "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control",
