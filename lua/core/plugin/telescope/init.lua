@@ -1,5 +1,4 @@
 require("core.plugin.telescope.scripts")
-require("core.plugin.telescope.initProject.dashboard")
 
 
 local actions = require("telescope.actions")
