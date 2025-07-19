@@ -18,6 +18,6 @@ M.snippets = {
    ["CSharp - KTA - Debug"] = kta .. "/debug.cs",
    ["CSharp - KTA - Main"] = kta .. "/main.cs",
    ["CSharp - KTA - Parser"] = kta .. "/parser.cs",
-   ["JS - KTA - Form"] = kta .. "wrapper_formObject.js",
+   ["JS - KTA - Form"] = kta .. "/wrapper_formObject.js",
 }
 return M
